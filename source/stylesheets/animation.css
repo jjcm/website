@@ -1,0 +1,11 @@
+#selected, #artContainer{
+  transition:all 0.2s ease-in-out;
+}
+.art, .artPiece, .artPiece img{
+  transition:all 0.5s ease-in-out;
+}
+
+.notes{
+  transition:all 0.3s ease-in-out;
+}
+  

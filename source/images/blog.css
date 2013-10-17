@@ -1,0 +1,94 @@
+/* line 1, ../../app/assets/stylesheets/blog.css.sass */
+body {
+  line-height: 26px;
+  font-size: 16px;
+  font-family: Georgia, serif;
+}
+
+/* line 5, ../../app/assets/stylesheets/blog.css.sass */
+a {
+  color: #2976c4;
+}
+
+/* line 7, ../../app/assets/stylesheets/blog.css.sass */
+#blogContainer {
+  width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 12, ../../app/assets/stylesheets/blog.css.sass */
+.step {
+  margin-top: 40px;
+  padding: 10px 40px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* line 20, ../../app/assets/stylesheets/blog.css.sass */
+h1 {
+  font-family: Segoe UI Light, sans-serif;
+  font-size: 30px;
+  font-weight: lighter;
+  margin-top: 5px;
+  margin-bottom: 14px;
+}
+
+/* line 26, ../../app/assets/stylesheets/blog.css.sass */
+h1.tail {
+  text-align: right;
+  margin-bottom: 7px;
+}
+
+/* line 29, ../../app/assets/stylesheets/blog.css.sass */
+h2 {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-bottom: 13px;
+}
+
+/* line 35, ../../app/assets/stylesheets/blog.css.sass */
+h3 {
+  font-family: Segoe UI Light, sans-serif;
+  font-size: 30px;
+  font-weight: lighter;
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+
+/* line 42, ../../app/assets/stylesheets/blog.css.sass */
+.fullwidth, .imageGallery {
+  position: relative;
+  width: 840px;
+  margin-left: -40px;
+}
+
+/* line 47, ../../app/assets/stylesheets/blog.css.sass */
+.imageGallery {
+  height: 280px;
+  margin-bottom: 10px;
+}
+/* line 50, ../../app/assets/stylesheets/blog.css.sass */
+.imageGallery img {
+  margin: 0px;
+  padding: 0px;
+  float: left;
+}
+
+/* line 55, ../../app/assets/stylesheets/blog.css.sass */
+.notes, .click {
+  width: 840px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+}
+
+/* line 62, ../../app/assets/stylesheets/blog.css.sass */
+.notes:hover, .click:active {
+  opacity: 1;
+}

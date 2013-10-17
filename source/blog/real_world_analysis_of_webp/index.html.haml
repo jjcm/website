@@ -1,0 +1,272 @@
+---
+title: Real World Analysis of Google's Webp Versus Jpg
+body_class: index
+---
+
+#blogContainer
+  #intro.step
+    %h1 Real World Analysis of Google's Webp Versus Jpg
+
+  .step
+    .fullwidth{:style => "margin-top: -30px"}
+      = image_tag "/images/blog/webp/webpBlogPreview.jpg"
+    %i
+      edit: A few people were asking what I was using to encode the images, as they were getting different results. I was using GIMP with the default settings, and matching the file size given by webp with the jpg compression algorithm in GIMP. This test is also not meant to show which schema has an advantage in file size, as doing that would mean I would have to some how quantify quality. Instead, the file sizes are set the same, and the quality is what's being compared in this post. Also note that the images shown on this page are reduced resolution versions of the actual images used in the test. Here's the web directory with the original source files (be nice. servers are already having a hard time keeping up): http://files.jjcm.org/webp
+
+    %p
+      Google announced their new webp image format today, along with claims that it will give users smaller file sizes with image quality equivalent to it's jpg counterpart. Obviously this is of great importance to google - the amount of bandwidth they use is tremendous, and simply reducing the file size of every image even by 1KB will have an enormous impact on the amount of bandwidth they consume. While they currently have several 
+      %a{:href => "http://code.google.com/speed/webp/gallery.html"} example images 
+      already up on their site, all of them are direct conversions from already lossy jpg files. While for their use case (converting many of the existing images/thumbnails in google image search) this is fine, for showing off the image quality it's a poor metric. The control group that they're using is already polluted with jpg artifacts, and although they will stack it wont be as obvious to even a trained eye. In this post I'll attempt to do conversions from several lossless image sources to both webp and jpg files with an attempt to keep the file sizes the same. Ideally this will allow us to easily see the visual differences between the two compression schemas. Before we go on though, I'd like to personally thank 
+      %a{:href => "http://divineerror.deviantart.com/"} Erik Anderson 
+      for providing me with most of the high resolution 3d renders and photographs used in this post; give him a pat on the back, he does cool stuff.
+    %p
+      That said, let's begin.
+  .step
+    %h3
+      Test #1 - "High Class" by 
+      %a{:href => "http://divineerror.deviantart.com/"} Erik Anderson
+    %p
+      This 3d image has some nice aspects in it for image analysis . the soft gradients in the background will bring out any banding issues that webp or jpg experience, and the hard edges of the martini glasses should clearly show us any artifacts.
+    %p
+      webp:
+      .fullwidth
+        = image_tag "/images/blog/webp/highClassWebp.png"
+        %img.notes{:src => "/images/blog/webp/highClassWebpDifference.png"}
+      jpg:
+      .fullwidth
+        = image_tag "/images/blog/webp/highClassJpg.jpg"
+        %img.notes{:src => "/images/blog/webp/highClassJpgDifference.png"}
+    %table
+      %thead
+        %tr
+          %th
+          %th webp
+          %th jpg
+      %tbody
+        %tr
+          %td Resolution:
+          %td 1920x1080
+          %td 1920x1080
+        %tr
+          %td Quality:
+          %td 44.6KB @ auto quality
+          %td 44.0KB
+        %tr
+          %td Mean RGB Difference: 
+          %td 0.8%
+          %td 1.3%
+        %tr
+          %td Mean Value Difference:
+          %td 1.3%
+          %td 1.6%
+    %p
+      Notice the major banding issues that jpg is having here. This was the first test I ran, and I let the webp converter automatically decide the quality of the image. I found that especially in later tests, it'd often set the image quality too low when it did this. Not because it wasn't a passable image, but simply because I often found it hard to get the jpg equivalent down to that quality while still remaining an acceptable image. This doesn't mean that webp is automatically a better format, but for smaller file sizes it seems to perform remarkably well (at least in this test). Hover over the above two images to see the enhanced difference map. This map was made by simply taking the difference of the compressed image and the original lossless image in gimp, then running a curve adjustment to bring out the subtle differences. If the image is identical, then the difference layer will be completely black. The lighter it is the more the pixels differ. Also, the more colorful it is the more the hue differs between the compressed image and the original.
+      In this case, it looks like the jpg compression has some very large changes in luminance in the image. The webp image has less of of a luminance problem, but at the cost of hue/color. Note that some of the colors in the diffraction of the glass are lost in both compression algorithms at this quality though.
+    %p
+      Of note, when I originally write this article I used gimp to export the jpgs. One thing I found was that the jpg compression used by gimp is significantly worse than photoshop's, and that photoshop's "save as" dialogue produces worse images than the "save for web" dialogue. 
+      %a{:href => "http://michael.terretta.com/"} Michael Terreta
+      was kind enough to send over a better version of the jpg shown here using Photoshop's "save for web". 
+      As he noted on on 
+      %a{:href => "http://news.ycombinator.com/item?id=1748894"} hacker news, 
+      it may very well be an issue with GIMP's JPG encoding which compounds the banding issues. Additional tests supported this, though I am unsure whether or not it has gotten better since 2010. 
+      %a{:href => "http://ianen.org/"} John Millikin 
+      further points out that the JPG format is also storing some additional EXIF data, which reduces the amount of space that JPG has to store the compressed image data if we're comparing on equal sizes. Either way, here's the details for Michael's version:
+    %p
+      jpg:
+      .fullwidth
+        = image_tag "/images/blog/webp/terretaJpg.jpg"
+        %img.notes{:src => "/images/blog/webp/terretaJpgDifference.png"}
+    %table
+      %thead
+        %tr
+          %th
+          %th jpg
+      %tbody
+        %tr
+          %td Resolution:
+          %td 1920x1280
+        %tr
+          %td Quality:
+          %td 44KB
+        %tr
+          %td Mean RGB Difference:
+          %td 1.0%
+        %tr
+          %td Mean Value Difference:
+          %td 1.3%
+
+
+  .step
+    %h3 Test #2 - Black and White
+    %p 
+      The chroma disparities displayed in the first set had me a bit worried as to how it'd perform in a grayscale situation. Problems did turn up, although not the ones I was expecting. When I ran the conversion script I got this error:
+    %pre
+      j@saunders:~$ ./webpconv IMG_0380.png
+      processing IMG_0380.png
+      Output file IMG_0380.webp
+      libpng error: Read Error
+      Error in pixReadStreamPng: internal png error
+      Error in pixReadStream: png: no pix returned
+      Error in pixGetInputFormat: pix not defined
+      Error in pixRead: image not returned
+      Failed to read image
+    %p
+      As it turns out, webp doesn't yet support color profiles. This particular image was set to grayscale for obvious reasons, so I converted it to sRGB before doing the webp run.
+    %p
+      webp:
+      .fullwidth
+        = image_tag "/images/blog/webp/beachWebp.png"
+        %img.notes{:src => "/images/blog/webp/beachWebpDifference.png"}
+      jpg:
+      .fullwidth
+        = image_tag "/images/blog/webp/beachJpg.jpg"
+        %img.notes{:src => "/images/blog/webp/beachJpgDifference.png"}
+    %table
+      %thead
+        %tr
+          %th
+          %th webp
+          %th jpg
+      %tbody
+        %tr
+          %td Resolution:
+          %td 600x900
+          %td 600x900
+        %tr
+          %td Quality:
+          %td 76KB
+          %td 72KB
+        %tr
+          %td Mean Value Difference:
+          %td 0.5%
+          %td 0.7%
+    %p
+      These both had their quality set pretty high, and the results show. I was surprised how well the webp did with no color to hide in, and my fears that it would display color artifacts were shot down. It performed wonderfully here as well, though visually it's fairly indistinguishable from jpg at this quality. Only the enhanced difference maps show its slight advantage. As far as the numbers go, note that as it's a grayscale image there's no RGB difference. Also interesting, is that this is the only test that the jpg outperformed the webp format in mean value difference. Worth noting though is the standard deviation in it though - 1.16 for the webp, and 1.96 for jpg (or in plain English, although both schemas are close in results the jpg compression is more erratic).
+
+  .step
+    %h3 Test #3 - All colors
+    %p 
+      It performed well with the extreme lack of colors, so let's hit the other end of the extremes here. The following image places 1 million colors strategically laid out in a single image. Courtesy of 
+      %a{:href => "http://en.wikipedia.org/wiki/File:1Mcolors.png"} Wikimedia commons, 
+      this image is often used for calibration tests, and I feel it'll do a decent job at stress testing compression algorithms.
+    %p
+      webp:
+      .fullwidth
+        = image_tag "/images/blog/webp/colorsWebp.png"
+        %img.notes{:src => "/images/blog/webp/colorsWebpDifference.png"}
+      jpg:
+      .fullwidth
+        = image_tag "/images/blog/webp/colorsJpg.jpg"
+        %img.notes{:src => "/images/blog/webp/colorsJpgDifference.png"}
+    %table
+      %thead
+        %tr
+          %th
+          %th webp
+          %th jpg
+      %tbody
+        %tr
+          %td Resolution:
+          %td 1000x1000
+          %td 1000x1000
+        %tr
+          %td Quality:
+          %td 32KB
+          %td 33KB
+        %tr
+          %td Mean RGB Difference:
+          %td 0.5%
+          %td 2.3%
+        %tr
+          %td Mean Value Difference:
+          %td 0.4%
+          %td 2.0%
+    %p
+      The results here are probably the most shocking difference between the two compression algorithms. Without a doubt webp outperforms jpg here, but that's not to say it's perfect. We're starting to notice it's characteristic crosshatch artifact footprint, even if it's far more subtle than jpg. Also note that this isn't anywhere near a real-world test, this is strictly a technical one in the case of this image. You would never encode an image like this normally. Nonetheless, it's interesting to see the large difference between their deltas (their delta primes?). I suspect a lot of it has to do with Webp's tendency to blur images rather than create a jpg like blocking, as it's original use was in video where the blurring wouldn't be noticed alongside motion.
+  
+  .step
+    %h3 Test #4 - High Res
+    %p
+      Google states that webp was developed to be a compression algorithm for medium to lower resolution files, so it'll be interesting to see how it performs at a higher resolution. Erik was kind enough to provide me with some of his full resolution images to conduct this test with. This long exposure night shot at 5616x3744 (21 MP) is a perfect candidate for a high res test, and an excellent photo in itself. I'd highly recommend that you check out the 
+      %a{:href => "http://files.jjcm.org/webp/"} full res source files 
+      if you're interested in seeing detailed artifacts.
+    %p
+      webp:
+      .fullwidth
+        = image_tag "/images/blog/webp/bmwWebp.png"
+        %img.notes{:src => "/images/blog/webp/bmwWebpDifference.png"}
+      jpg:
+      .fullwidth
+        = image_tag "/images/blog/webp/bmwJpg.jpg"
+        %img.notes{:src => "/images/blog/webp/bmwJpgDifference.png"}
+    %table
+      %thead
+        %tr
+          %th
+          %th webp
+          %th jpg
+      %tbody
+        %tr
+          %td Resolution:
+          %td 5616x3744
+          %td 5616x3744
+        %tr
+          %td Quality:
+          %td 562KB
+          %td 568KB
+        %tr
+          %td Mean RGB Difference:
+          %td 0.7%
+          %td 0.8%
+        %tr
+          %td Mean Value Difference:
+          %td 0.6%
+          %td 0.8%
+    %p
+      The higher res images seem to even the playing field a bit. If you view the full sized image, you'll notice that the biggest issues are in the background. Both the crosshatch and the jpg compression are present if you look close enough at the bokeh, and most obvious at all is the banding in jpg's rendition of the night sky. I'd say that the bokeh artifacts are about on par with each other, but the banding in the night sky makes webp a winner here in my book.
+
+  .step
+    %h3 Test #5 - Portrait
+    %p
+      Let's get a fairly real-world test here - me. A handsome picture of a well-developed man with good morals, a healthy love of the out doors and... er wait, I mean a simple portrait with decent lighting, good focus, and a medium sized input file. Right let's get to it.
+    %p
+      webp:
+      .fullwidth
+        = image_tag "/images/blog/webp/jacobWebp.png"
+        %img.notes{:src => "/images/blog/webp/jacobWebpDifference.png"}
+      jpg:
+      .fullwidth
+        = image_tag "/images/blog/webp/jacobJpg.jpg"
+        %img.notes{:src => "/images/blog/webp/jacobJpgDifference.png"}
+    %table
+      %thead
+        %tr
+          %th
+          %th webp
+          %th jpg
+      %tbody
+        %tr
+          %td Resolution:
+          %td 562x375
+          %td 562x375
+        %tr
+          %td Quality:
+          %td 14KB
+          %td 14KB
+        %tr
+          %td Mean RGB Difference:
+          %td 0.8%
+          %td 0.8%
+        %tr
+          %td Mean Value Difference:
+          %td 0.7%
+          %td 0.8%
+    %p
+      Much like in the picture of the bmw, both versions have artifacts in the out of focus background. However, the jpg version also heavily shows compression artifacts in the face of the subject as well. Oddly, webp did the reverse - instead of making the facial area more jaggedy, it actually smoothed out the skin when compared to the 
+      %a{:href => "http://files.jjcm.org/webp/j_lossless.png"} original. 
+      While the effect is nice in this case, I'm not sure that would generalize well.
+
+  .step
+    %h3 Conclusion
+    %p
+      All in all, I'd say that google's claims are valid - it's a compression schema that does seem to outperform jpg. So should we all jump ship and never touch jpg again? No, absolutely not. Webp is in an alpha stage right now, and there doesn't yet exist a browser (or an image viewer for that matter) that supports it. It's also missing some key features such as color profiles and alpha channels. When it gathers those things and adds some polish, it will be a strong contender in the world of images on the web. Nonetheless even then it will have a long path ahead of it - backwards compatibility is a big issue here, and I don't see them being able to get Microsoft to include support for quite some time (remember how long it took to get png support with alpha transparency by default?). However, for mobile devices I think it has a strong business case - less data means faster page loads, which is crucial on mobile connections with limited bandwidth. Google's hardest road ahead lies not in improving the already decent algorithm, but in getting it adopted. It'll be interesting to see how well they can do there.

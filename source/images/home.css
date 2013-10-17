@@ -1,0 +1,114 @@
+/* line 3, ../../app/assets/stylesheets/home.css.sass */
+body {
+  margin: 0;
+  background-color: #d7d7d7;
+  overflow-x: hidden;
+}
+
+/* line 8, ../../app/assets/stylesheets/home.css.sass */
+#nav {
+}
+/* line 10, ../../app/assets/stylesheets/home.css.sass */
+#nav ul {
+  list-style: none;
+  padding: 0px;
+  margin: 20px;
+  -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.75);
+  height: 40px;
+  width: 222px;
+}
+/* line 19, ../../app/assets/stylesheets/home.css.sass */
+#nav ul li {
+  background-color: #363636;
+  float: left;
+  color: white;
+  margin-right: 1px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  text-indent: -9999px;
+  background-image: url("header.png");
+}
+/* line 29, ../../app/assets/stylesheets/home.css.sass */
+#nav ul li:last-child {
+  margin-right: 0px;
+}
+/* line 31, ../../app/assets/stylesheets/home.css.sass */
+#nav ul li:hover {
+  cursor: pointer;
+  opacity: 0.95;
+}
+/* line 34, ../../app/assets/stylesheets/home.css.sass */
+#nav ul li#profileLink {
+  width: 140px;
+}
+/* line 36, ../../app/assets/stylesheets/home.css.sass */
+#nav ul li#artLink {
+  background-position: -141px;
+}
+/* line 38, ../../app/assets/stylesheets/home.css.sass */
+#nav ul li#blogLink {
+  background-position: -182px;
+}
+
+/* line 41, ../../app/assets/stylesheets/home.css.sass */
+#artContainer {
+  overflow: hidden;
+  margin-top: -40px;
+}
+
+/* line 44, ../../app/assets/stylesheets/home.css.sass */
+.art:first-child {
+  height: 201px;
+  margin-bottom: -20px;
+}
+
+/* line 49, ../../app/assets/stylesheets/home.css.sass */
+.art {
+  position: relative;
+  height: 221px;
+  overflow: hidden;
+  margin-left: -1px;
+  margin-bottom: -40px;
+}
+
+/* line 55, ../../app/assets/stylesheets/home.css.sass */
+.artPiece {
+  overflow: hidden;
+  margin-bottom: 40px;
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.75);
+  width: 354px;
+  height: 180px;
+  float: left;
+  margin-left: 1px;
+  margin-top: 20px;
+  z-index: 10;
+  position: relative;
+}
+/* line 68, ../../app/assets/stylesheets/home.css.sass */
+.artPiece img {
+  position: absolute;
+}
+
+/* line 71, ../../app/assets/stylesheets/home.css.sass */
+.rowA {
+  margin-right: -4000px;
+}
+/* line 73, ../../app/assets/stylesheets/home.css.sass */
+.rowA .artPiece {
+  margin-right: -10px;
+}
+
+/* line 75, ../../app/assets/stylesheets/home.css.sass */
+.rowB {
+  margin-left: -4000px;
+}
+/* line 77, ../../app/assets/stylesheets/home.css.sass */
+.rowB .artPiece {
+  margin-left: -10px;
+  float: right;
+}

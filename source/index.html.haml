@@ -1,0 +1,161 @@
+---
+title: Hi, I'm Jacob
+body_class: index
+---
+:sass
+  #selected
+    width: 700px
+    height: 1363px
+    background-image: url('/images/listenLarge.jpg')
+    background-repeat: no-repeat
+    position: absolute
+    top: 86px
+    left: 932px
+    z-index: 120
+    opacity: 0
+    display: none
+    box-shadow: 0px 0px 30px rgba(0,0,0,0.5)
+%br
+#artContainer
+
+#showcase
+
+#selected
+
+#bio
+  #salutation
+    Hi internet friends, I'm
+  %h1
+    Jacob Miller
+  = image_tag '/images/jacob.jpg', :class => 'profilePicture'
+  %p
+    I do art and code and sometimes other things. This is my homepage, which as a rule of thumb contains nothing useful. This homepage is where I conduct experiments, which at any given time are usually broken. 
+  %p
+    If you're looking for something more polished, head over to 
+    %a{:href => "/art"} my art
+    or
+    %a{:href => "/blog"} my blog. 
+    If you're lucky they're up and I haven't broken anything. Interested in me personally? Try 
+    %a{:href => "/resume"} my bio. 
+
+:javascript
+  var art = ['robot2Large', 'girlLarge', 'listenLarge', 'robot1', 'kaenaLarge', 'finished2'];
+  var container = $('#artContainer');
+  var ART_WIDTH = 344;
+
+  //construct the rows
+  var artPieces = '';
+  i = art.length;
+  while(i--){
+    artPieces = artPieces + '<div class="artPiece ' + art[i] + '1"><img data-picture="' + art[i] + '1" src="/images/' + art[i] + '.jpg"/></div>'; 
+  }
+  i = art.length;
+  while(i--){
+    artPieces = artPieces + '<div class="artPiece ' + art[i] + '2"><img data-picture="' + art[i] + '2" class="' + art[i] + '2" src="/images/' + art[i] + '.jpg"/></div>'; 
+  }
+
+  i = 10;
+  while(i--){
+    container.append('<div class="row' + (i%2 == 0 ? 'A' : 'B') + ' art">' + artPieces + '</div>');
+  }
+
+  //handler for clicking
+  artShowcased = false;
+  var currentArt;
+
+  function returnToGrid(){
+    $('#selected').toggle();
+    $('#selected').css('opacity', 0);
+    $('#artContainer').css('opacity', 1);
+    artShowcased = false;
+    $('.rowA').each(function(index, value){
+      $(this).css('left', '0px');
+    });
+    $('.rowB').each(function(index, value){
+      $(this).css('left', '0px');
+    });
+    $('.' + selectedArt).each(function(index, value){
+      $(this).css('width', (ART_WIDTH + 10) + 'px');
+      $(this.children[0]).css('top', '-200px');
+    });
+    $('.artPiece').each(function(index, value){
+      $(this).css('opacity', 1);
+    });
+  }
+  $('#selected').click(function(){returnToGrid();});
+  $('.artPiece').click(
+    function(){
+      if(artShowcased){
+        returnToGrid();
+      }
+      else{
+        //get our window width so we can slide the right amount
+        width = $(document).width();
+        artShowcased = true;
+        console.log($(this.children[0]).offset());
+        currentArt = $("." + this.className.split(" ")[1]).first();
+        offsetLeft = $(currentArt.children()[0]).offset().left - 346;
+        slideArtTo( ( (width - 700) / 2 ) - offsetLeft + 1);
+        console.log( ( (width - 700) / 2 ) - offsetLeft + 1);
+        selectedArt = this.children[0].dataset.picture;
+        $('.' + selectedArt).each(function(index, value){
+          $(this).css('width', '700px');
+          $(this.children[0]).css('top', (index * 181 * -1) + 'px');
+        });
+
+        /*
+        $('.artPiece').each(function(index, value){
+          if(this.children[0].dataset.picture != selectedArt){
+            //console.log(selectedArt + ' ' + this.children[0].dataset.picture);
+            $(this).css('opacity', 0);
+          }
+        });
+        */
+        $('#selected').toggle();
+        $('#selected').css('background-image', "url(" + currentArt.children()[0].src + ")");
+        $('#selected').css('left', (width - 700)/2 + "px");
+        setTimeout(function(){
+          $('#selected').css('opacity', 1);
+        }, 400);
+
+
+
+
+
+
+
+        /*
+        selectedArt = art.indexOf(this.children[0].dataset.picture);
+        console.log(this.children[0].dataset.picture);
+        switch(this.children[0].dataset.picture){
+          case 'boot.jpg': 
+            console.log("boot!");
+            break;
+          case 'girl.jpg': 
+            console.log("girl!");
+            break;
+          case 'listen.jpg': 
+            console.log("listen!");
+            break;
+          default:
+            console.log("nope!");
+        }
+        $('.rowA').each(function(index, value){
+          $(this).css('left', '-' + (selectedArt * ART_WIDTH / 2) + 'px');
+        });
+        $('.rowB').each(function(index, value){
+          $(this).css('left', (selectedArt * ART_WIDTH / 2) + 'px');
+        });
+        */
+      }
+    }
+  );
+
+  function slideArtTo(x){
+    $('.rowA').each(function(index, value){
+      $(this).css('left', ( -1 * x ) + 'px');
+    });
+    $('.rowB').each(function(index, value){
+      $(this).css('left', (x) + 'px');
+    });
+  }
