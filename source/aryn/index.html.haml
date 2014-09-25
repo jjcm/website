@@ -1,0 +1,228 @@
+---
+title: jjcm's portfolio
+body_class: index
+---
+= javascript_include_tag "draggabilly.pkgd.min.js"
+:sass
+  #heart
+    z-index: 10
+    position: relative
+    width: 400px
+    height: 559px
+    margin-left: auto
+    margin-right: auto
+    margin-top: -730px
+    background-repeat: no-repeat
+    background-position: center
+    background-size: 90%
+    -webkit-animation: beat 1.5s
+    animation: beat 1.5s
+    animation-iteration-count: infinite
+    -webkit-animation-iteration-count: infinite
+  @-webkit-keyframes beat
+    0%
+      background-size: 90%
+    10%
+      background-size: 100%
+    20%
+      background-size: 80%
+    30%
+      background-sizei: 90%
+
+  @-webkit-keyframes badBlood
+    0%
+      opacity: 0
+      top: 200px
+      left: 150px
+      background-size: 30%
+    10%
+      opacity: 1
+      top: 200px
+    30%
+      top: 0px
+    100%
+      opacity: 0
+      background-size: 20%
+
+  @-webkit-keyframes goodBlood
+    0%
+      opacity: 0
+      top: 120px
+      left: 250px
+      background-size: 20%
+    10%
+      opacity: 1
+      
+    30%
+      top: 150px
+      left: 450px
+    80%
+      opacity: 1
+    100%
+      top: -100px
+      left: 350px
+      background-size: 50%
+      opacity: 0
+  @-webkit-keyframes bloodIn
+    0%
+      opacity: 0
+      top: -100px
+      background-size: 40%
+      left: 150px
+    3%
+      opacity: 1
+      
+    15%
+      opacity: 1
+    20%
+      opacity: 0
+      top: 150px
+      left: 110px
+      background-size: 20%
+    100%
+      top: -100px
+  .broken
+    background-image: url('/images/heart.png')
+  .good
+    background-image: url('/images/goodHeart.png')
+  #bandaid
+    background-image: url('/images/bandaid.png')
+    width: 209px
+    height: 262px
+    position: absolute
+    left: 150px
+    top: 350px
+    z-index: 1000
+  #message, #ohno
+    width: 600px
+    margin-left: auto
+    margin-right: auto
+    font-family: sans-serif
+    font-weight: lighter
+    font-size: 42px
+    text-align: center
+    color: #222
+    i
+      font-size: 30px
+  #message
+    visibility: hidden
+    
+  #blood
+    width: 600px
+    height: 859px
+    margin-left: auto
+    margin-right: auto
+    position: relative
+    z-index: 1
+    
+    div
+      opacity: 0
+      width: 200px
+      height: 200px
+      position: absolute
+      background-repeat: no-repeat
+      background-position: center
+      background-size: 30%
+    #badBlood
+      -webkit-animation: badBlood 1.5s
+      animation: badBlood 1.5s
+      animation-iteration-count: infinite
+      -webkit-animation-iteration-count: infinite
+      left: 0px
+      background-image: url('/images/badBlood.png')
+    #bloodIn
+      -webkit-animation: bloodIn 1.5s
+      animation: bloodIn 1.5s
+      animation-iteration-count: infinite
+      -webkit-animation-iteration-count: infinite
+      left: 150px
+      top: -100px
+      background-image: url('/images/goodBlood.png')
+    #goodBlood
+      visibility: hidden
+      -webkit-animation: goodBlood 1.5s
+      animation: goodBlood 1.5s
+      animation-iteration-count: infinite
+      -webkit-animation-iteration-count: infinite
+      left: 250px
+      top: 120px
+      background-image: url('/images/goodBlood.png')
+  #hiddenForLoadingPurposes
+    position: absolute
+    left: -1000px
+    top: -1000px
+    opacity: 0.01
+  #miniHeart
+    width: 80px
+    height: 80px
+    background-image: url('/images/miniHeart.png')
+    background-repeat: no-repeat
+    background-position: center
+    background-size: 90%
+    -webkit-animation: beat 1.5s
+    animation: beat 1.5s
+    animation-iteration-count: infinite
+    -webkit-animation-iteration-count: infinite
+    margin-top: 60px
+    margin-bottom: -52px
+    margin-left: 180px
+    
+  @media only screen and (orientation: portrait)
+    #bandaid
+      left: 390px
+      top: 1000px
+      
+
+#aryn
+  #blood
+    #bloodIn
+    #badBlood
+    #goodBlood
+  #heart.broken
+  #bandaid
+  #ohno
+    %p 
+      Oh no! The heart is broken!
+    %p
+      %i
+        Drag the bandaid on it to make it all better!
+  #message
+    %p 
+      You Did It! Fixed Forever!
+    %p 
+      %i
+        Zayt gezunt shnel!
+      %br
+      %br
+      Get well soon Aryn!
+    %p
+      #miniHeart
+      &nbsp;&nbsp;&nbsp;&nbsp;jake
+  #hiddenForLoadingPurposes
+    = image_tag "/images/goodHeart.png"
+  
+
+:javascript
+
+  var bandaid = document.getElementById('bandaid');
+  var heart = document.getElementById('heart');
+  var heartLeftBound = heart.offsetLeft;
+  var heartRightBound = heart.offsetLeft + heart.offsetWidth;
+  var heartUpperBound = heart.offsetTop;
+  var heartLowerBound = heart.offsetTop + heart.offsetHeight;
+  var draggie = new Draggabilly( bandaid, {});
+  draggie.on('dragEnd', checkBandaidPosition);
+  function checkBandaidPosition(instance, e, pointer){
+    if(bandaid.offsetLeft > heartLeftBound 
+      && (bandaid.offsetLeft + bandaid.offsetWidth < heartRightBound)
+      && (bandaid.offsetTop > heartUpperBound)
+      && (bandaid.offsetTop + bandaid.offsetHeight < heartLowerBound)){
+      bandaid.visibility = "hidden";
+      bandaid.style.opacity = "0";
+      heart.className = "good";
+      document.getElementById('goodBlood').style.visibility = "visible";
+      document.getElementById('badBlood').style.visibility = "hidden";
+      document.getElementById('message').style.visibility = "visible";
+      document.getElementById('ohno').style.display = "none";
+    }
+  }

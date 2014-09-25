@@ -1,0 +1,28 @@
+%script{:type=>"text/javascript", :src=>"page1.js"}
+
+%canvas#story{:width=>"920", :height=>"700"}
+        
+:javascript
+  var canvas = document.getElementById('story');
+  var ctx = canvas.getContext('2d');
+
+  function draw(offsetx, offsety){
+      var ctx = document.getElementById('story').getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for( i in page1 ){
+          ctx.drawImage(page1[i].src, page1[i].x - (offsetx / page1[i].xscale), page1[i].y - (offsety / page1[i].yscale));
+      }
+  }
+
+  if( window.DeviceMotionEvent != undefined ){
+      window.ondevicemotion = function(e){
+          draw((100 * e.rotationRate.beta), (100 * e.rotationRate.alpha));
+      }
+  }
+
+  document.addEventListener('mousemove', function(e){
+      draw((2*e.clientX), (2*e.clientY));
+  });
+
+
