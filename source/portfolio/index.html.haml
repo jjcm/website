@@ -3,6 +3,8 @@ title: jjcm's portfolio
 body_class: index
 ---
 :sass
+  h3, h1
+    margin-top: 20px
   #book
     position: relative
     margin-left: 96px
@@ -18,7 +20,7 @@ body_class: index
     width: 300px
     margin-left: 400px
     margin-top: 100px
-    margin-bottom: 1331px
+    margin-bottom: 1296px
     color: #0c0300
   #environments
     color: #e6fcff
@@ -63,6 +65,8 @@ body_class: index
       width: 305px
       margin-left: 458px
       color: #fff
+  .photomanipulation .fullwidth img
+    margin-bottom: 0px
 
 
 #blogContainer
@@ -96,8 +100,18 @@ body_class: index
     %p#tutorial
       In the tutorial section, I tried to visually show how to use the accelerometer to play. This was one of the screens, but the game also includes a minigame at the start where the user attempts to pour tea by manipulating their phone in the same motion. This trains a user to rotate their wrist, which eventually lets the user swing the character back and forth on ropes. 
 
+  .step.ui#timetravel
+    %p
+      A quick exercise for a hypothetical time travel application.
+    %p
+      The user would set their destination date, or pick from historical events such as the construction of the pyramids. The app would also alert the user if they were in the wrong location to view the event they were traveling to see.
+    %p
+      Once a date is picked, the user is given a confirmation page that includes three distinct keys to visualize the direction they're going. A graph showing the beginning and end points along with arrows, a button that changes arrow indicators depending on direction, and a text confirmation as well. This ensures the user doesn't inadvertantly travel back in time when they were really trying to go forward. 
+    %p
+      As part of the design exercise, I made sure to ensure that it was made for both ios' and android's design language.  
+
   .step.ui
-    %h3 UI Design
+    %h3 Microsoft
     %p
       While I can't show you some of the many, many projects I worked on at Microsoft (IP and all that jazz), I can show off some of my UI mockups. Here's a few to tickle your fancy.
   .step.ui
@@ -108,15 +122,6 @@ body_class: index
     %p#transittext
       This one is an imaginary London transit app for a Windows tablet. 
 
-  .step.ui#timetravel
-    %p
-      A quick exercise for a hypothetical time travel application.
-    %p
-      The user would set their destination date, or pick from historical events such as the construction of the pyramids. The app would also alert the user if they were in the wrong location to view the event they were traveling to see.
-    %p
-      Once a date is picked, the user is given a confirmation page that includes three distinct keys to visualize the direction they're going. A graph showing the beginning and end points along with arrows, a button that changes arrow indicators depending on direction, and a text confirmation as well. This ensures the user doesn't inadvertantly travel back in time when they were really trying to go forward. 
-    %p
-      As part of the design exercise, I made sure to ensure that it was made for both ios' and android's design language.  
   .step.ui
     %p
       .fullwidth#ticketmaster
@@ -130,7 +135,7 @@ body_class: index
         = image_tag "/images/portfolio/nookLitigators.png", :style => "margin-left: 171px; margin-bottom: 40px; width: 700px; height: auto;"
       Nook app mockup for a Windows tablet. 
 
-  .step.ui
+  .step.ui.photomanipulation
     %h3 Photomanipulation
     %p
       This isn't strictly related to any job you might hire me for, but you should check out 
