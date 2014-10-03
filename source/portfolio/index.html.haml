@@ -2,6 +2,8 @@
 title: jjcm's portfolio
 body_class: index
 ---
+
+= javascript_include_tag 'parallax.min.js'
 :sass
   h3, h1
     margin-top: 20px
@@ -67,9 +69,30 @@ body_class: index
       color: #fff
   .photomanipulation .fullwidth img
     margin-bottom: 0px
+  #parallaxContainer
+    width: 1024px
+    height: 768px
+    overflow: hidden
+    padding-left: -20px
+    padding-top: -20px
+    position: absolute
+    top: 68px
+    left: -92px
+    #parallax
+      left: -100px
+      top: -800px
+  #ipadParallaxBg
+    margin-left: -246px
+  .nobg
+    background: none
+    box-shadow: none
+
+  
+    
 
 
 #blogContainer
+
   #intro.step
     %h1 Howdy Friends
     %p
@@ -85,7 +108,20 @@ body_class: index
       %a{:href => "https://itunes.apple.com/us/app/the-girl-who-dreamed-of-africa/id631927316?mt=8"} app store. 
     %p
       I have a second one in production now. It's amazing how much I've learned from the first one, I'm excited to see what I learn from the next. 
-    = image_tag "/images/portfolio/book.png", :id => "book"
+    %p
+      Mouse over the ipad below to get a feel for it.
+  .step.nobg
+    #parallaxContainer
+      %ul#parallax{"data-scalar-y" => 40, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.00"}
+          =image_tag "http://files.jjcm.org/bookImages/04a.jpg"
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/04b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/04c.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/04d.png"
+    %img#ipadParallaxBg{:src => "../images/ipadLandscape.png"}
 
   .step#lamarama
     %h3 Lama Rama
@@ -158,3 +194,28 @@ body_class: index
         %a{:href => "mailto:j@jjcm.org?subject=hey jacob, we'd like to hire you"}
           j@jjcm.org
     %p{:style => "height: 200px;"}
+
+:javascript
+  var scene = document.getElementById('parallax');
+  var parallax = new Parallax(scene);
+  var parallaxEnabled = false;
+  var parallaxContainer = document.getElementById('parallaxContainer');
+  parallaxContainer.onmouseenter = function(){enableParallax()};
+  parallaxContainer.onmouseleave = function(){disableParallax()};
+  setTimeout(function(){ parallax.disable()}, 1000);
+  function enableParallax(){
+    if(!parallaxEnabled){
+      parallax.enable();
+      parallaxEnabled = true;
+      console.log('hi');
+    }
+  }
+  function disableParallax(){
+    if(parallaxEnabled){
+      parallax.disable();
+      parallaxEnabled = false;
+      console.log('hi');
+    }
+  }
+
+
