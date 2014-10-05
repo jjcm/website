@@ -78,7 +78,7 @@ body_class: index
     position: absolute
     top: 68px
     left: -92px
-    #parallax
+    #parallax4
       left: -100px
       top: -800px
   #ipadParallaxBg
@@ -112,7 +112,16 @@ body_class: index
       Mouse over the ipad below to get a feel for it.
   .step.nobg
     #parallaxContainer
-      %ul#parallax{"data-scalar-y" => 40, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
+      %ul#parallax3{"data-scalar-y" => 10, "data-scalar-x" => 40, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.00"}
+          =image_tag "http://files.jjcm.org/bookImages/03a.jpg"
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/03b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/03c.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/03d.png"
+      %ul#parallax4next{"data-scalar-y" => 40, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
         %li.layer{"data-depth" => "0.00"}
           =image_tag "http://files.jjcm.org/bookImages/04a.jpg"
         %li.layer{"data-depth" => "0.40"}
@@ -200,6 +209,7 @@ body_class: index
   var parallax = new Parallax(scene);
   var parallaxEnabled = false;
   var parallaxContainer = document.getElementById('parallaxContainer');
+  var page = 4;
   parallaxContainer.onmouseenter = function(){enableParallax()};
   parallaxContainer.onmouseleave = function(){disableParallax()};
   setTimeout(function(){ parallax.disable()}, 1000);
