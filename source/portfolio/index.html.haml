@@ -69,7 +69,7 @@ body_class: index
       color: #fff
   .photomanipulation .fullwidth img
     margin-bottom: 0px
-  #parallaxContainer
+  .pageContainer
     width: 1024px
     height: 768px
     overflow: hidden
@@ -78,7 +78,10 @@ body_class: index
     position: absolute
     top: 68px
     left: -92px
-    #parallax4
+    ul
+      margin: 0px
+      padding: 0px
+    #parallax1
       left: -100px
       top: -800px
   #ipadParallaxBg
@@ -111,8 +114,8 @@ body_class: index
     %p
       Mouse over the ipad below to get a feel for it.
   .step.nobg
-    #parallaxContainer
-      %ul#parallax3{"data-scalar-y" => 10, "data-scalar-x" => 40, "clipRelativeInput" => "true"}
+    #parallaxContainer0.pageContainer
+      %ul#parallax0{"data-scalar-y" => 10, "data-scalar-x" => 40, "clipRelativeInput" => "true"}
         %li.layer{"data-depth" => "0.00"}
           =image_tag "http://files.jjcm.org/bookImages/03a.jpg"
         %li.layer{"data-depth" => "0.40"}
@@ -121,7 +124,8 @@ body_class: index
           =image_tag "http://files.jjcm.org/bookImages/03c.png"
         %li.layer{"data-depth" => "1.00"}
           =image_tag "http://files.jjcm.org/bookImages/03d.png"
-      %ul#parallax4next{"data-scalar-y" => 40, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
+    #parallaxContainer1.pageContainer
+      %ul#parallax1.next{"data-scalar-y" => 40, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
         %li.layer{"data-depth" => "0.00"}
           =image_tag "http://files.jjcm.org/bookImages/04a.jpg"
         %li.layer{"data-depth" => "0.40"}
@@ -205,11 +209,16 @@ body_class: index
     %p{:style => "height: 200px;"}
 
 :javascript
-  var scene = document.getElementById('parallax');
-  var parallax = new Parallax(scene);
-  var parallaxEnabled = false;
+  var numberOfPages = 2;
+  var scenes = [];
+  console.log('hi');
+  for(i = 0; i < numberOfPages; i++){
+    scenes.push(new Parallax(document.getElementById('parallax' + i)));
+    console.log(scenes[i]);
+  }
   var parallaxContainer = document.getElementById('parallaxContainer');
   var page = 4;
+  /*
   parallaxContainer.onmouseenter = function(){enableParallax()};
   parallaxContainer.onmouseleave = function(){disableParallax()};
   setTimeout(function(){ parallax.disable()}, 1000);
@@ -227,5 +236,6 @@ body_class: index
       console.log('hi');
     }
   }
+  */
 
 
