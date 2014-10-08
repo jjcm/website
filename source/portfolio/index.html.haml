@@ -81,7 +81,12 @@ body_class: index
     ul
       margin: 0px
       padding: 0px
+    #parallax0
+      left: -200px
+      top: -100px
+
     #parallax1
+      display: none
       left: -100px
       top: -800px
   #ipadParallaxBg
@@ -115,7 +120,7 @@ body_class: index
       Mouse over the ipad below to get a feel for it.
   .step.nobg
     #parallaxContainer0.pageContainer
-      %ul#parallax0{"data-scalar-y" => 10, "data-scalar-x" => 40, "clipRelativeInput" => "true"}
+      %ul#parallax0{"data-scalar-y" => 10, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
         %li.layer{"data-depth" => "0.00"}
           =image_tag "http://files.jjcm.org/bookImages/03a.jpg"
         %li.layer{"data-depth" => "0.40"}
