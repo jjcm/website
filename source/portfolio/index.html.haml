@@ -81,11 +81,19 @@ body_class: index
     ul
       margin: 0px
       padding: 0px
-    #parallax0
+    #parallax1
       left: -200px
       top: -100px
+    #parallax2
+      display: none
+      left: -200px
+      top: -100px
+    #parallax3
+      left: -200px
+      top: -100px
+      display: none
 
-    #parallax1
+    #parallax4
       display: none
       left: -100px
       top: -800px
@@ -119,8 +127,26 @@ body_class: index
     %p
       Mouse over the ipad below to get a feel for it.
   .step.nobg
-    #parallaxContainer0.pageContainer
-      %ul#parallax0{"data-scalar-y" => 10, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+    #parallaxContainer1.pageContainer
+      %ul#parallax1{"data-scalar-y" => 1, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.00"}
+          =image_tag "http://files.jjcm.org/bookImages/01a.jpg"
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/01a.jpg"
+        %li.layer{"data-depth" => "0.60"}
+          =image_tag "http://files.jjcm.org/bookImages/01b.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/01c.png"
+    #parallaxContainer2.pageContainer
+      %ul#parallax2{"data-scalar-y" => 10, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.00"}
+          =image_tag "http://files.jjcm.org/bookImages/01a.jpg"
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/01b.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/01c.png"
+    #parallaxContainer3.pageContainer
+      %ul#parallax3{"data-scalar-y" => 10, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
         %li.layer{"data-depth" => "0.00"}
           =image_tag "http://files.jjcm.org/bookImages/03a.jpg"
         %li.layer{"data-depth" => "0.40"}
@@ -129,8 +155,8 @@ body_class: index
           =image_tag "http://files.jjcm.org/bookImages/03c.png"
         %li.layer{"data-depth" => "1.00"}
           =image_tag "http://files.jjcm.org/bookImages/03d.png"
-    #parallaxContainer1.pageContainer
-      %ul#parallax1.next{"data-scalar-y" => 40, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
+    #parallaxContainer4.pageContainer
+      %ul#parallax4.next{"data-scalar-y" => 40, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
         %li.layer{"data-depth" => "0.00"}
           =image_tag "http://files.jjcm.org/bookImages/04a.jpg"
         %li.layer{"data-depth" => "0.40"}
@@ -217,7 +243,7 @@ body_class: index
   var numberOfPages = 2;
   var scenes = [];
   console.log('hi');
-  for(i = 0; i < numberOfPages; i++){
+  for(i = 1; i <= numberOfPages; i++){
     scenes.push(new Parallax(document.getElementById('parallax' + i)));
     console.log(scenes[i]);
   }
