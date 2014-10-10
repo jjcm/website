@@ -84,10 +84,10 @@ body_class: index
     #parallax1
       left: -200px
       top: -100px
-    #parallax2
       display: none
+    #parallax2
       left: -200px
-      top: -100px
+      top: -240px
     #parallax3
       left: -200px
       top: -100px
@@ -138,13 +138,15 @@ body_class: index
         %li.layer{"data-depth" => "1.00"}
           =image_tag "http://files.jjcm.org/bookImages/01c.png"
     #parallaxContainer2.pageContainer
-      %ul#parallax2{"data-scalar-y" => 10, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
-        %li.layer{"data-depth" => "0.00"}
-          =image_tag "http://files.jjcm.org/bookImages/01a.jpg"
+      %ul#parallax2{"data-scalar-y" => 35, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.20"}
+          =image_tag "http://files.jjcm.org/bookImages/02a.jpg"
         %li.layer{"data-depth" => "0.40"}
-          =image_tag "http://files.jjcm.org/bookImages/01b.png"
+          =image_tag "http://files.jjcm.org/bookImages/02b.png"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/02c.png"
         %li.layer{"data-depth" => "1.00"}
-          =image_tag "http://files.jjcm.org/bookImages/01c.png"
+          =image_tag "http://files.jjcm.org/bookImages/02d.png"
     #parallaxContainer3.pageContainer
       %ul#parallax3{"data-scalar-y" => 10, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
         %li.layer{"data-depth" => "0.00"}
