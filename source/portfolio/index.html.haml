@@ -93,12 +93,19 @@ body_class: index
       left: -200px
       top: -100px
       display: none
-
     #parallax4
       display: none
       left: -100px
       top: -800px
     #parallax5
+      left: -200px
+      top: -200px
+      display: none
+    #parallax6
+      left: -200px
+      top: -200px
+    #parallax7
+      display: none
       left: -200px
       top: -200px
   #ipadParallaxBg
@@ -179,6 +186,64 @@ body_class: index
           =image_tag "http://files.jjcm.org/bookImages/05b.png"
         %li.layer{"data-depth" => "1.00"}
           =image_tag "http://files.jjcm.org/bookImages/05c.png"
+    #parallaxContainer6.pageContainer
+      %ul#parallax6.next{"data-scalar-y" => 5, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/06a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/06b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/06c.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/06d.png"
+    #parallaxContainer7.pageContainer
+      %ul#parallax7.next{"data-scalar-y" => 5, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/07a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/07b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/07c.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/07d.png"
+    #parallaxContainer8.pageContainer
+      %ul#parallax8.next{"data-scalar-y" => 5, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/08a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/08b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/08c.png"
+    #parallaxContainer9.pageContainer
+      %ul#parallax9.next{"data-scalar-y" => 5, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/09a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/09b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/09c.png"
+    #parallaxContainer10.pageContainer
+      %ul#parallax10.next{"data-scalar-y" => 5, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/10a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/10b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/10c.png"
+        %li.layer{"data-depth" => "0.90"}
+          =image_tag "http://files.jjcm.org/bookImages/10d.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/10e.png"
+    #parallaxContainer11.pageContainer
+      %ul#parallax11.next{"data-scalar-y" => 5, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/11a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/11b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/11c.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/11d.png"
     %img#ipadParallaxBg{:src => "../images/ipadLandscape.png"}
 
   .step#lamarama
@@ -254,7 +319,7 @@ body_class: index
     %p{:style => "height: 200px;"}
 
 :javascript
-  var numberOfPages = 5;
+  var numberOfPages = 6;
   var scenes = [];
   console.log('hi');
   for(i = 1; i <= numberOfPages; i++){
