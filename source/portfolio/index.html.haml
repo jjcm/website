@@ -78,8 +78,8 @@ body_class: index
     position: absolute
     top: 68px
     left: -92px
-    display: none
     ul
+      display: none
       margin: 0px
       padding: 0px
     #parallax1
@@ -118,8 +118,6 @@ body_class: index
     #parallax12
       left: -238px
       top: -157px
-  #parallaxContainer1
-    display: block
   #ipadParallaxBg
     margin-left: -246px
   .nobg
@@ -366,14 +364,33 @@ body_class: index
 
 :javascript
   var numberOfPages = 12;
+  var page = Math.ceil(Math.random() * numberOfPages);
   var scenes = [];
   console.log('hi');
   for(i = 1; i <= numberOfPages; i++){
-    scenes.push(new Parallax(document.getElementById('parallax' + i)));
+    p = document.getElementById('parallax' + i);
+    scenes.push(new Parallax(p));
+    if(i == page){
+      p.style.display = "block";
+    }
     console.log(scenes[i]);
   }
+  setTimeout(function(){
+    for(i = 0; i < scenes.length; i++){
+      if(i != page - 1){
+        scenes[i].disable();
+      }
+    }
+  }, 2000);
+
+  function showNextPage(){
+    document.getElementById('parallax' + page).style.display = "none";
+    scenes[page - 1].disable();
+    page = page >= numberOfPages ? 1 : page + 1;
+    scenes[page - 1].enable();
+    document.getElementById('parallax' + page).style.display = "block";
+  }
   var parallaxContainer = document.getElementById('parallaxContainer');
-  var page = 4;
   /*
   parallaxContainer.onmouseenter = function(){enableParallax()};
   parallaxContainer.onmouseleave = function(){disableParallax()};
