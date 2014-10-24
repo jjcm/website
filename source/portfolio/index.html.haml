@@ -118,6 +118,18 @@ body_class: index
     #parallax12
       left: -238px
       top: -157px
+  #nextPage, #previousPage
+    position: absolute
+    width: 72px
+    height: 72px
+    background-color: #fff
+    top: 100px
+
+  #nextPage
+    right: -54px
+  #previousPage
+    left: -54px
+    
   #ipadParallaxBg
     margin-left: -246px
   .nobg
@@ -289,6 +301,10 @@ body_class: index
         %li.layer{"data-depth" => "0.0"}
           =image_tag "http://files.jjcm.org/bookImages/12text.png"
     %img#ipadParallaxBg{:src => "../images/ipadLandscape.png"}
+    #previousPage
+    #audioToggle
+    #nextPage
+
 
   .step#lamarama
     %h3 Lama Rama
@@ -390,6 +406,17 @@ body_class: index
     scenes[page - 1].enable();
     document.getElementById('parallax' + page).style.display = "block";
   }
+
+  function showPreviousPage(){
+    document.getElementById('parallax' + page).style.display = "none";
+    scenes[page - 1].disable();
+    page = page == 1 ? numberOfPages : page - 1;
+    scenes[page - 1].enable();
+    document.getElementById('parallax' + page).style.display = "block";
+  }
+
+  document.getElementById('nextPage').addEventListener('click', function(){showNextPage();});
+  document.getElementById('previousPage').addEventListener('click', function(){showPreviousPage();});
   var parallaxContainer = document.getElementById('parallaxContainer');
   /*
   parallaxContainer.onmouseenter = function(){enableParallax()};
