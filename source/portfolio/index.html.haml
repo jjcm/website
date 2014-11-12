@@ -120,15 +120,17 @@ body_class: index
       top: -157px
   #nextPage, #previousPage
     position: absolute
-    width: 72px
-    height: 72px
-    background-color: #fff
+    width: 80px
+    height: 80px
+    cursor: pointer
     top: 100px
 
   #nextPage
     right: -54px
+    background-image: url(http://files.jjcm.org/bookImages/next.png)
   #previousPage
     left: -54px
+    background-image: url(http://files.jjcm.org/bookImages/prev.png)
     
   #ipadParallaxBg
     margin-left: -246px
@@ -380,7 +382,7 @@ body_class: index
 
 :javascript
   var numberOfPages = 12;
-  var page = Math.ceil(Math.random() * numberOfPages);
+  var page = 1; //Math.ceil(Math.random() * numberOfPages);
   var scenes = [];
   console.log('hi');
   for(i = 1; i <= numberOfPages; i++){
