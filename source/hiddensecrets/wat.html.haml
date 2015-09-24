@@ -1,0 +1,54 @@
+:sass
+  h3:hover
+    font-size: 1800px
+    font-weight: bold
+    animation: wat 0.1s
+    -webkit-animation: wat 0.1s
+    -webkit-animation-iteration-count: infinite
+    cursor: pointer
+  @-webkit-keyframes wat
+    0%
+      font-size: 1788px
+      margin-left: -333px
+      letter-spacing: 882px
+      
+    10%
+    100%
+%h3#wat wat
+:javascript
+  var cssVariables = ['color', 'margin-left', 'margin-top', 'letter-spacing', 'font-size', 'font-weight', 'webkitTransform'];
+  var wat = document.getElementById('wat');
+  function roll(){
+    var randomCSS = Math.floor(Math.random() * cssVariables.length);
+    //switching on the name instead of the index for legibility. I'm kinda high right now and need all the help I can get.
+    //edit: nm, javascript doesnt let me use strings as  tokens for switch statements. :(
+    var attribute;
+    switch(randomCSS){
+      case 0:
+        attribute = '#' + Math.floor(Math.random() * 16777216).toString(16);
+        break;
+      case 1:
+        attribute = (Math.floor(Math.random() * window.innerWidth) - (window.innerWidth / 8)) + 'px';
+        break;
+      case 2:
+        attribute = (Math.floor(Math.random() * window.innerHeight) - (window.innerHeight / 8)) + 'px';
+        break;
+      case 3:
+        attribute = (Math.floor(Math.random() * 300) - 50) + 'px';
+        break;
+      case 4:
+        attribute = (Math.floor(Math.random() * 500) + 30) + 'px';
+        break;
+      case 5:
+        attribute = ['lighter', 'bold', 'bolder', 'normal'][Math.floor(Math.random() * 4)];
+        break;
+      case 6:
+        attribute = ['rotate', 'skewX', 'rotateY', 'rotateZ'][Math.floor(Math.random() * 4)] + '(' + (Math.floor(Math.random() * 180) - 90) + 'deg)';
+        console.log(attribute);
+        break;
+    }
+    //console.log(attribute);
+    wat.style[cssVariables[randomCSS]] = attribute;
+  };
+  setInterval(function(){roll();}, 300);
+

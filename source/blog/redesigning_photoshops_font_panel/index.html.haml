@@ -1,0 +1,101 @@
+---
+title: Redesigning Photoshop's Font Panel
+body_class: index
+---
+
+:sass
+  #blogContainer
+    width: 910px
+  .smallWidth
+    width: 542px !important
+    height: 618px !important
+  #fontPanel
+    width: 244px
+    height: 638px
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25)
+    position: absolute
+    top: 0px
+    left: 666px
+    img
+      position: absolute
+    .hiddenTilHover
+      opacity: 0.01
+    .hiddenTilHover:hover
+      opacity: 1
+
+
+#blogContainer
+  #intro.step
+    %h1 TL;DR
+    .fullwidth
+      = image_tag '/images/redesigningPhotoshopsFontPanel/tldr.png'
+    %h1.tail ...for those who want to know more, read on.
+
+  .step.smallWidth
+    %h3 Motivation
+    #fontPanel
+      = image_tag '/images/redesigningPhotoshopsFontPanel/old.png'
+      = image_tag '/images/redesigningPhotoshopsFontPanel/oldOverlay.png', :class => "hiddenTilHover"
+    #fontPanelText
+      %p 
+        This is my current font panel. Even with only system default fonts installed, it's 2550px high. The system provides over 130 fonts by default, but extremely few of them are ever useful to an every day designer. 
+      %p
+        Hover over this image to see which of the fonts I'd actually use. 
+      %p
+        Five fonts.
+      %p
+        96% wasted space. 
+      %p
+        That's how much space is wasted here with fonts I'll never use. I don't plan on using Microsoft Yi Bati, Wingdings, or Myanmar Text Extralight Script Nueuo anytime soon. Looking around for solutions to this, I dove into the land of font managers. Initially they seemed to be exactly what I needed. 
+      %p
+        Except they weren't. Sure I could disable fonts in the font manager, but if they were a system font programs that used them would fail gloriously. Webpages would show &#9633;&#9633;&#9633;&#9633;&#9633; in place of the missing fonts. Titlebars would be empty. Icons would be without labels. 
+      %p 
+        Rather than wait for a better solution to present itself, I decided to have a run at redesigning the font panel as I'd like to have it. Here's what I came up with. 
+
+  .step 
+    %h3 The Redesign
+    %p
+      The fonts are separated into three categories: fonts used in this project, favorite fonts, and all fonts. 
+    .fullwidth
+      = image_tag "/images/redesigningPhotoshopsFontPanel/photoshop1.png"
+    %p
+      Fonts can be filtered as well, much like the layer window. You can choose between showing only serif or sans-serif fonts, weight classes (light, regular, semibold, bold, black), and italics. In this case, I'm only showing sans-serif fonts in the light and bold variety. 
+    .fullwidth
+      = image_tag "/images/redesigningPhotoshopsFontPanel/photoshop2.png"
+    %p
+      The ability to refresh the fonts without restarting the program is a feature I've always wanted. It's a small thing, but it makes a difference. In addition we can choose to show all fonts, or only our favorites. 
+    %p
+      Another option that I think would be important is that any newly installed font would be detected and added to my favorites. When I'm installing a new typeface, chances are I want to use it right away. It's going to be at the top of my priority list.  
+    .fullwidth
+      = image_tag "/images/redesigningPhotoshopsFontPanel/photoshop3.png"
+    %p
+      Another feature I'd really enjoy (though this is just frosting on the cake) is the ability to preview multiple typefaces at once in the context of the image I'm working on. Highlighting text then selecting the font dropdown would populate the font list with not only the names of the font, but also a live preview of them in place. 
+    .fullwidth
+      = image_tag "/images/redesigningPhotoshopsFontPanel/photoshop4.png"
+    %p
+      Of course you can display all fonts in addition to just the favorites, and add/remove favories via the right click context menu. 
+    .fullwidth
+      = image_tag "/images/redesigningPhotoshopsFontPanel/photoshop5.png"
+    %p
+      Thanks for checking out my redesign. Below you can download the .psd containing the design source. 
+    
+    %p.license
+      = image_tag '/images/chooser_cc.png'
+      This post, its content, and related files are released under a 
+      %a{:href => "http://creativecommons.org/licenses/by/3.0/"} Attribution 3.0 Unported license
+      \. Feel free to share, remix, reuse, and learn from anything you see here. I'd appreciate credit, but if you don't I wont hunt you down.
+
+    %p.files
+      %h3 
+        Resources used in the creation of or mentioned by this post:
+      .file
+        %a{:href => 'http://cdn.jjcm.org/psds/photoshopTypeSuggestionFullPage.psd'}
+          = image_tag '/images/redesigningPhotoshopsFontPanel/photoshopTextBoxSourceIcon.png'
+        .description
+          Photoshop font panel concept.<br/>
+          PSD, mostly vector based.<br/>
+          2.1MB
+
+    
+      
+

@@ -1,0 +1,235 @@
+---
+title: jjcm's portfolio
+body_class: index
+---
+
+= javascript_include_tag 'parallax.min.js'
+:sass
+  h3, h1
+    margin-top: 20px
+  #book
+    position: relative
+    margin-left: 96px
+    margin-top: 90px
+    margin-bottom: 120px
+  #lama1
+    position: absolute
+    left: 120px
+    top: 218px
+  #lamaintro
+    color: #0c0300
+  #lama1text
+    width: 300px
+    margin-left: 400px
+    margin-top: 100px
+    margin-bottom: 1296px
+    color: #0c0300
+  #environments
+    color: #e6fcff
+  #tutorial
+    color: #262220
+    margin-top: 873px
+    img
+      margin-top: 120px
+      margin-left: 263px
+      margin-bottom: 120px
+  .fullwidth
+    margin-left: -142px
+  .ui
+    img
+      margin-top: 20px
+      margin-bottom: 20px
+    #transittext
+    #iostext
+      margin-bottom: 40px
+    #ios
+      img
+        margin-left: 88px
+        margin-bottom: 80px
+    #ticketmaster
+
+  #name
+    margin-top: 180px
+    margin-left: 306px
+  #contact
+    text-align: center
+  #idid
+    text-align: center
+  #lamarama
+    background-image: url(../images/portfolio/lamaRamaBackground.png)
+    height: 2868px
+  #timetravel
+    background-image: url(../images/portfolio/timeTravelBlog.png)
+    height: 2044px
+    padding-top: 15px
+    p
+      
+      width: 305px
+      margin-left: 458px
+      color: #fff
+  .photomanipulation .fullwidth img
+    margin-bottom: 0px
+  #parallaxContainer
+    width: 1024px
+    height: 768px
+    overflow: hidden
+    padding-left: -20px
+    padding-top: -20px
+    position: absolute
+    top: 68px
+    left: -92px
+    #parallax4
+      left: -100px
+      top: -800px
+  #ipadParallaxBg
+    margin-left: -246px
+  .nobg
+    background: none
+    box-shadow: none
+
+  
+    
+
+
+#blogContainer
+
+  #intro.step
+    %h1 Howdy Friends
+    %p
+      This is a nice little snapshot of my design portfolio. For you it's a list of things I've had experience doing; for me it's some fond memories. Let's jump into it. 
+
+  .step
+    %h3 Childrens' Books
+    %p
+      I made a children's book! I really wanted to do something interactive, so I started drafting up some prototypes in html5. I experimented with a bunch of effects, animations, and small games, but I eventually decided to start small and only use a basic parallax effect to increase the visual depth of the artwork. I hired an artist to do the illustrations and a coder to port over the 
+      %a{:href => "http://files.jjcm.org/book/"}
+        initial html5 prototypes. 
+      They sadly didn't have enough performance on mobile devices, so I needed it in native code. Once I had those parts done I crafted the UI. I was thinking of making the UI more interactive for the kids, but after talking to several parents and testing it with kids, the biggest response I got was that parents didn't want their kids playing another video game. They said that too much gamification often led their kids to ignore the content of the story, and just pay attention to the game. So I kept it simple, adding only the parallax effect and the ability for a kid to have the page read to them. I hired a voice artist, had him record the lines, packaged it,  and submitted it. Overall a very fun project which you can check out in the 
+      %a{:href => "https://itunes.apple.com/us/app/the-girl-who-dreamed-of-africa/id631927316?mt=8"} app store. 
+    %p
+      I have a second one in production now. It's amazing how much I've learned from the first one, I'm excited to see what I learn from the next. 
+    %p
+      Mouse over the ipad below to get a feel for it.
+  .step.nobg
+    #parallaxContainer
+      %ul#parallax0{"data-scalar-y" => 10, "data-scalar-x" => 40, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.00"}
+          =image_tag "http://files.jjcm.org/bookImages/03a.jpg"
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/03b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/03c.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/03d.png"
+      %ul#parallax1.next{"data-scalar-y" => 40, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.00"}
+          =image_tag "http://files.jjcm.org/bookImages/04a.jpg"
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/04b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/04c.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/04d.png"
+    %img#ipadParallaxBg{:src => "../images/ipadLandscape.png"}
+
+  .step#lamarama
+    %h3 Lama Rama
+    %p#lamaintro
+      Lama Rama is a mobile game I'm working on with some friends that utilizes gyro, face tracking, and cross device input to play. At first I was tasked with finding someone to do the artwork, but failing that I ended up doing it all myself. 
+    %p#lama1text
+      This was the intro screen. I went through a lot of logo revisions. The name of the app changed a bunch, and what we wanted to convery in it also changed. This wasn't the actual final version, but it's the one that I was most happy with. Initially the game featured a llama (as in the animal) who guided the lama (as in the Dali Lama) through the game. This was later ditched, but I liked the logo that resulted from it.
+
+    %p#environments
+      The many environments that the game played between made it a challenging project, but I enjoyed drawing everything from deserts to icebergs.
+
+    %p#tutorial
+      In the tutorial section, I tried to visually show how to use the accelerometer to play. This was one of the screens, but the game also includes a minigame at the start where the user attempts to pour tea by manipulating their phone in the same motion. This trains a user to rotate their wrist, which eventually lets the user swing the character back and forth on ropes. 
+
+  .step.ui#timetravel
+    %p
+      A quick exercise for a hypothetical time travel application.
+    %p
+      The user would set their destination date, or pick from historical events such as the construction of the pyramids. The app would also alert the user if they were in the wrong location to view the event they were traveling to see.
+    %p
+      Once a date is picked, the user is given a confirmation page that includes three distinct keys to visualize the direction they're going. A graph showing the beginning and end points along with arrows, a button that changes arrow indicators depending on direction, and a text confirmation as well. This ensures the user doesn't inadvertantly travel back in time when they were really trying to go forward. 
+    %p
+      As part of the design exercise, I made sure to ensure that it was made for both ios' and android's design language.  
+
+  .step.ui
+    %h3 Microsoft
+    %p
+      While I can't show you some of the many, many projects I worked on at Microsoft (IP and all that jazz), I can show off some of my UI mockups. Here's a few to tickle your fancy.
+  .step.ui
+    %p
+      .fullwidth
+        = image_tag "/images/portfolio/transitAppHome.png"
+        = image_tag "/images/portfolio/transitApp.png"
+    %p#transittext
+      This one is an imaginary London transit app for a Windows tablet. 
+
+  .step.ui
+    %p
+      .fullwidth#ticketmaster
+        = image_tag "/images/portfolio/ticketmaster.png"
+      Ticketmaster app mockup for a Windows tablet.
+
+  .step.ui
+    %p
+      .fullwidth
+        = image_tag "/images/portfolio/nookLibrary.png"
+        = image_tag "/images/portfolio/nookLitigators.png", :style => "margin-left: 171px; margin-bottom: 40px; width: 700px; height: auto;"
+      Nook app mockup for a Windows tablet. 
+
+  .step.ui.photomanipulation
+    %h3 Photomanipulation
+    %p
+      This isn't strictly related to any job you might hire me for, but you should check out 
+      %a{:href => "/blog/anatomy_of_a_surreal_photoshoot/"} the blog post I made 
+      detailing the creation of this:
+      .fullwidth{:style => "margin-left: -40px;"}
+        = image_tag "/images/finished2.jpg"
+    %p
+      It details my workflow pretty well, and it will give you a general idea of what it'd be like to work with me. 
+
+
+  .step
+    %p
+      %h3#name Jacob Miller
+      #contact
+        = image_tag "/images/portfolio/profilePic.png"
+        %br
+        808 366 1708
+        %br
+        %a{:href => "mailto:j@jjcm.org?subject=hey jacob, we'd like to hire you"}
+          j@jjcm.org
+    %p{:style => "height: 200px;"}
+
+:javascript
+  var numberOfPages = 2;
+  var scenes = [];
+  for(i = 0; i < numberOfPages; i++){
+    scenes.push(new Parallax(document.getElementById('parallax' + i)));
+  }
+  var parallaxContainer = document.getElementById('parallaxContainer');
+  var page = 4;
+  /*
+  parallaxContainer.onmouseenter = function(){enableParallax()};
+  parallaxContainer.onmouseleave = function(){disableParallax()};
+  setTimeout(function(){ parallax.disable()}, 1000);
+  function enableParallax(){
+    if(!parallaxEnabled){
+      parallax.enable();
+      parallaxEnabled = true;
+      console.log('hi');
+    }
+  }
+  function disableParallax(){
+    if(parallaxEnabled){
+      parallax.disable();
+      parallaxEnabled = false;
+      console.log('hi');
+    }
+  }
+  */
+
+

@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="page2.js"></script>
+    </head>
+    <style type="text/css">
+        body{margin:0px; overflow: hidden;}
+        canvas{margin-top: -200px;}
+    </style>
+    <body>
+        <canvas id="story" width="2048" height="1536"></canvas>
+        
+        <script type="text/javascript">
+$(document).ready(function(){
+    pageScale();
+});
+
+var canvas = document.getElementById('story');
+var ctx = canvas.getContext('2d');
+
+function pageScale(e){
+    var x = $(window).width()/2048;
+    var y = $(window).height()/1536;
+    if(x>y){ 
+        y = x;
+        offset = ($(window).height() - 1536) / 2;
+        $('#story').css('marginTop', offset);
+    }
+    else{ 
+        x = y;
+        offset = ($(window).width() - 2048) / 2;
+        $('#story').css('marginLeft', offset);
+    }
+    ctx.setTransform(1,0,0,1,0,0); // reset the sclae.
+    ctx.scale(x, y);
+    draw(0,0);
+}
+window.onresize = function(){pageScale();};
+
+
+
+//html5canvastutorials.com
+function getMousePos(canvas, e){
+    // get canvas position
+    var obj = canvas;
+    var top = 0;
+    var left = 0;
+    while (obj && obj.tagName != 'BODY') {
+        top += obj.offsetTop;
+        left += obj.offsetLeft;
+        obj = obj.offsetParent;
+    }
+ 
+    // return relative mouse position
+    var mouseX = e.clientX - left + window.pageXOffset;
+    var mouseY = e.clientY - top + window.pageYOffset;
+    return {
+        x: mouseX,
+        y: mouseY
+    };
+}
+
+function draw(offsetx, offsety){
+    var ctx = document.getElementById('story').getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for( i in page1 ){
+        ctx.drawImage(page1[i].src, page1[i].x - (offsetx / page1[i].xscale), page1[i].y - (offsety / page1[i].yscale));
+    }
+}
+
+
+if( window.DeviceMotionEvent != undefined ){
+    window.ondevicemotion = function(e){
+        draw((100 * e.rotationRate.beta), (100 * e.rotationRate.alpha));
+    }
+}
+
+canvas.addEventListener('mousemove', function(e){
+    var mousePos = getMousePos(canvas, e);
+    draw((2*mousePos.x), (2*mousePos.y));
+});
+
+
+        </script>
+    </body>
