@@ -1,0 +1,50 @@
+:sass
+  body
+    background-color: #222
+  .video
+    background-image: url(iphoneFrame.png)
+    width: 430px
+    height: 850px
+    background-repeat: no-repeat
+    padding-left: 28px
+    padding-top: 102px
+    transform: scaleX(0.95)
+    video
+      width: 375px
+      height: 627px
+  #deviceMotion
+    transition: transform 0.4s ease-in-out
+    transform: matrix3d(0.9,0,-0.02,-0.0005,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    animation: devicemotion 9.53s infinite
+
+  @keyframes devicemotion 
+    0% 
+      transform: matrix3d(0.9,0,-0.02,-0.0004,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    13% 
+      transform: matrix3d(0.9,0,0.02,0.0004,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    25% 
+      transform: matrix3d(0.9,0,-0.02,-0.0004,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    36% 
+      transform: matrix3d(0.9,0,0.02,0.0002,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    47% 
+      transform: matrix3d(0.9,0,-0.02,-0.0003,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    54% 
+      transform: matrix3d(0.9,0,0.02,0.0002,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    68%
+      transform: matrix3d(0.9,0,0.02,-0.0002,0.00,0.906,0.34,0.0003,-0.02,-0.34,0.94,0,0,0,0,1)
+    78%
+      transform: matrix3d(1,0,0.00,0,0.00,1,0.00,-0.0001,0,0,1,0,0,0,0,1)
+    89%
+      transform: matrix3d(1,0,0,0,0.00,1,0.34,0.0001,-0.02,-0.34,0.94,0,0,0,0,1)
+      
+
+.video
+  %video{:autoplay=>'true', :loop=>'true'}
+    %source{:src=>'initial.mp4', :type=>'video/mp4'}
+.video
+  %video{:autoplay=>'true', :loop=>'true'}
+    %source{:src=>'parallax.mp4', :type=>'video/mp4'}
+#deviceMotion.video
+  %video{:autoplay=>'true', :loop=>'true'}
+    %source{:src=>'deviceMotion.mp4', :type=>'video/mp4'}
+
