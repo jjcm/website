@@ -69,7 +69,7 @@ body_class: index
       color: #fff
   .photomanipulation .fullwidth img
     margin-bottom: 0px
-  #parallaxContainer
+  .pageContainer
     width: 1024px
     height: 768px
     overflow: hidden
@@ -78,9 +78,59 @@ body_class: index
     position: absolute
     top: 68px
     left: -92px
+    ul
+      display: none
+      margin: 0px
+      padding: 0px
+    #parallax1
+      left: -238px
+      top: -157px
+    #parallax2
+      left: -238px
+      top: -417px
+    #parallax3
+      left: -238px
+      top: -157px
     #parallax4
-      left: -100px
-      top: -800px
+      left: -126px
+      top: -551px
+    #parallax5
+      left: -238px
+      top: -157px
+    #parallax6
+      left: -238px
+      top: -157px
+    #parallax7
+      left: -238px
+      top: -157px
+    #parallax8
+      left: -238px
+      top: -157px
+    #parallax9
+      left: -238px
+      top: -157px
+    #parallax10
+      left: -125px
+      top: -543px
+    #parallax11
+      left: -238px
+      top: -157px
+    #parallax12
+      left: -238px
+      top: -157px
+  #nextPage, #previousPage
+    position: absolute
+    width: 80px
+    height: 80px
+    cursor: pointer
+    top: 100px
+
+  #nextPage
+    right: -54px
+    background-image: url(http://files.jjcm.org/bookImages/next.png)
+  #previousPage
+    left: -54px
+    background-image: url(http://files.jjcm.org/bookImages/prev.png)
   #ipadParallaxBg
     margin-left: -246px
   .nobg
@@ -111,8 +161,32 @@ body_class: index
     %p
       Mouse over the ipad below to get a feel for it.
   .step.nobg
-    #parallaxContainer
-      %ul#parallax0{"data-scalar-y" => 10, "data-scalar-x" => 40, "clipRelativeInput" => "true"}
+    #parallaxContainer1.pageContainer
+      %ul#parallax1{"data-scalar-y" => 1, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.00"}
+          =image_tag "http://files.jjcm.org/bookImages/01a.jpg"
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/01a.jpg"
+        %li.layer{"data-depth" => "0.60"}
+          =image_tag "http://files.jjcm.org/bookImages/01b.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/01c.png"
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/01text.png"
+    #parallaxContainer2.pageContainer
+      %ul#parallax2{"data-scalar-y" => 25, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/02a.jpg"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/02b.png"
+        %li.layer{"data-depth" => "0.80"}
+          =image_tag "http://files.jjcm.org/bookImages/02c.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/02d.png"
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/02text.png"
+    #parallaxContainer3.pageContainer
+      %ul#parallax3{"data-scalar-y" => 10, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
         %li.layer{"data-depth" => "0.00"}
           =image_tag "http://files.jjcm.org/bookImages/03a.jpg"
         %li.layer{"data-depth" => "0.40"}
@@ -121,7 +195,10 @@ body_class: index
           =image_tag "http://files.jjcm.org/bookImages/03c.png"
         %li.layer{"data-depth" => "1.00"}
           =image_tag "http://files.jjcm.org/bookImages/03d.png"
-      %ul#parallax1.next{"data-scalar-y" => 40, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/03text.png"
+    #parallaxContainer4.pageContainer
+      %ul#parallax4.next{"data-scalar-y" => 30, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
         %li.layer{"data-depth" => "0.00"}
           =image_tag "http://files.jjcm.org/bookImages/04a.jpg"
         %li.layer{"data-depth" => "0.40"}
@@ -130,7 +207,106 @@ body_class: index
           =image_tag "http://files.jjcm.org/bookImages/04c.png"
         %li.layer{"data-depth" => "1.00"}
           =image_tag "http://files.jjcm.org/bookImages/04d.png"
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/04text.png"
+    #parallaxContainer5.pageContainer
+      %ul#parallax5.next{"data-scalar-y" => 3, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/05a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/05b.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/05c.png"
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/05text.png"
+    #parallaxContainer6.pageContainer
+      %ul#parallax6.next{"data-scalar-y" => 15, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/06a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/06b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/06c.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/06d.png"
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/06text.png"
+    #parallaxContainer7.pageContainer
+      %ul#parallax7.next{"data-scalar-y" => 15, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/07a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/07b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/07c.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/07d.png"
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/07text.png"
+    #parallaxContainer8.pageContainer
+      %ul#parallax8.next{"data-scalar-y" => 15, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/08a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/08b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/08c.png"
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/08text.png"
+    #parallaxContainer9.pageContainer
+      %ul#parallax9.next{"data-scalar-y" => 5, "data-scalar-x" => 20, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/09a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/09b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/09c.png"
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/09text.png"
+    #parallaxContainer10.pageContainer
+      %ul#parallax10.next{"data-scalar-y" => 40, "data-scalar-x" => 10, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/10a.jpg"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/10b.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/10c.png"
+        %li.layer{"data-depth" => "0.90"}
+          =image_tag "http://files.jjcm.org/bookImages/10d.png"
+        %li.layer{"data-depth" => "1.00"}
+          =image_tag "http://files.jjcm.org/bookImages/10e.png"
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/10text.png"
+    #parallaxContainer11.pageContainer
+      %ul#parallax11.next{"data-scalar-y" => 10, "data-scalar-x" => 30, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/11a.png"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/11b.png"
+        %li.layer{"data-depth" => "0.60"}
+          =image_tag "http://files.jjcm.org/bookImages/11c.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/11d.png"
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/11text.png"
+    #parallaxContainer12.pageContainer
+      %ul#parallax12.next{"data-scalar-y" => 10, "data-scalar-x" => 30, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/bookImages/11a.png"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/bookImages/11b.png"
+        %li.layer{"data-depth" => "0.60"}
+          =image_tag "http://files.jjcm.org/bookImages/11c.png"
+        %li.layer{"data-depth" => "0.70"}
+          =image_tag "http://files.jjcm.org/bookImages/12d.png"
+        %li.layer{"data-depth" => "0.0"}
+          =image_tag "http://files.jjcm.org/bookImages/12text.png"
     %img#ipadParallaxBg{:src => "../images/ipadLandscape.png"}
+    #previousPage
+    #audioToggle
+    #nextPage
+
+>>>>>>> ad2b6e0eb358deb1b1aaac71f478e6536184b8ed
 
   .step#lamarama
     %h3 Lama Rama
@@ -205,13 +381,45 @@ body_class: index
     %p{:style => "height: 200px;"}
 
 :javascript
-  var numberOfPages = 2;
+  var numberOfPages = 12;
+  var page = 1; //Math.ceil(Math.random() * numberOfPages);
   var scenes = [];
-  for(i = 0; i < numberOfPages; i++){
-    scenes.push(new Parallax(document.getElementById('parallax' + i)));
+  console.log('hi');
+  for(i = 1; i <= numberOfPages; i++){
+    p = document.getElementById('parallax' + i);
+    scenes.push(new Parallax(p));
+    if(i == page){
+      p.style.display = "block";
+    }
+    console.log(scenes[i]);
   }
+  setTimeout(function(){
+    for(i = 0; i < scenes.length; i++){
+      if(i != page - 1){
+        scenes[i].disable();
+      }
+    }
+  }, 2000);
+
+  function showNextPage(){
+    document.getElementById('parallax' + page).style.display = "none";
+    scenes[page - 1].disable();
+    page = page >= numberOfPages ? 1 : page + 1;
+    scenes[page - 1].enable();
+    document.getElementById('parallax' + page).style.display = "block";
+  }
+
+  function showPreviousPage(){
+    document.getElementById('parallax' + page).style.display = "none";
+    scenes[page - 1].disable();
+    page = page == 1 ? numberOfPages : page - 1;
+    scenes[page - 1].enable();
+    document.getElementById('parallax' + page).style.display = "block";
+  }
+
+  document.getElementById('nextPage').addEventListener('click', function(){showNextPage();});
+  document.getElementById('previousPage').addEventListener('click', function(){showPreviousPage();});
   var parallaxContainer = document.getElementById('parallaxContainer');
-  var page = 4;
   /*
   parallaxContainer.onmouseenter = function(){enableParallax()};
   parallaxContainer.onmouseleave = function(){disableParallax()};

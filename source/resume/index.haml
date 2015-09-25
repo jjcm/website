@@ -1,0 +1,188 @@
+---
+layout: none
+---
+
+:css
+  body {
+      font-family: sans-serif;
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  #contact ul{
+      list-style: none;
+      padding-left: 0;
+  }
+  .design, .code{
+    width: 400px;
+    float: left;
+  }
+  .clearfix{
+    clear: both;
+  }
+  h4 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  .design h4, .code h4{
+    margin-top: 5px;
+    font-weight: bold;
+    font-style: italic;
+  }
+    
+
+%h1 Jacob Miller
+#contact
+  %ul
+    %li Phone: 808 366 1708
+    %li
+      Email:
+      %a{:href => "mailto:j@jjcm.org?subject=hey jacob, we'd like to hire you"} j@jjcm.org
+#bio
+  %h2 Bio
+  Once upon a time I was a freelance designer. I was given an illegal copy of photoshop when I was nine, and instantly fell in love with it. Through that piece of pirated software I eventually taught myself design, branding, color, layout, and other principles. When it came time for college, I sought to diversify and study computer science rather than the natural path of continuing with design. Through both of these skills I'm able to bring an idea from imagination to a working piece of elegantly designed software in days.
+  .skills
+    %h4 Skills
+    .code
+      %h4 Code
+      Proficient:
+      %ul
+        %li HTML5/javascript
+        %li C#/Xaml
+        %li Ruby on Rails
+        %li haml/sass
+        %li Ubuntu
+        %li VIM
+        %li BASH
+      Moderate:
+      %ul
+        %li Varnish
+        %li Apache
+        %li Git/Team Foundation
+        %li Actionscript
+        %li Visual Studio
+        %li asp.NET MVC
+        %li Objective C/iOS SDK
+    .design
+      %h4 Design
+      Proficient:
+      %ul
+        %li Photoshop
+        %li Illustrator
+        %li After Effects
+        %li Expression Blend
+        %li Photomanipulation
+        %li Logo Design/Branding
+        %li Paper prototyping
+      Moderate:
+      %ul
+        %li Lightroom
+        %li DSLR Cameras
+.clearfix
+#work
+  %h2 Work
+  %p
+    %h3 Microsoft
+    %i Feb 2011 - Present
+    %br/
+    %h4 Summary
+    Prototyper. Worked to design and bring existing designs to life on several platforms including web, windows tablet, windows phone, xbox, and others. Performed fast iterations, going from an idea to a usable interaction in under two weeks.
+    .positions
+      %h4 Positions and teams
+      .position
+        %i Natural User Interface Prototyper
+        %p
+          Worked on creating alternative input (voice reco, gesture, body tracking) UI flows for Windows Phone and Xbox. Helped create the kinect interface for the Netflix app for Xbox, early Cortana prototypes for Windows phone, and entity specific voice interaction for Windows 8. 
+      .position
+        %i Future Envisioning Prototyper/Designer
+        %p
+          The coolest role by far. Worked with an agile team in San Francisco who partenered with startups in the area to propose, design, and build protoypes of ideas with a targetted ship date of 2025. Helped build Microsoft's roadmap for far-reaching projects and non-standard interaction methods. Did predictive analysis of the market, environment, hardware, and software capabilities at five year, ten year, and twenty year marks. Designed UIs and interaction models for wearable technology and large-format full-wall screens (10 feet plus). 
+      .position
+        %i Information Platform Experience Prototyper/Designer
+        %p
+          Worked on integrating the latest data offerings of Bing services into the existing products (maps, search, cortana). Made further Cortana prototypes showing off alternate UI interactions and flows with a digital companion. Did 3D map UI testing and created interaction models. Helped create the new 3D version of photosynth and prototyped real-time 3d environment scanning UIs. 
+      .position
+        %i Bing Design Prototyper (current)
+        %p
+          Worked on all things Bing.com. Helped create prototypes and shippable apps for iPhone and Android that tied into Bing's data services. Created live, user-facing javascript based interactive elements for specific bing.com search results. 
+
+          
+      
+    .skills
+      %h4 Skills and technologies used:
+      .code
+        %h4 Code
+        %ul
+          %li asp.NET MVC
+          %li HTML5/javascript
+          %li C#/Xaml
+          %li Varnish
+          %li Apache
+          %li haml/sass
+          %li Actionscript
+          %li Ruby on Rails
+          %li Visual Studio
+          %li Git/Team Foundation
+          %li Ubuntu
+      .design
+        %h4 Design
+        %ul
+          %li Photoshop
+          %li Illustrator
+          %li After Effects
+          %li Expression Blend
+          %li Paper prototypes
+    %br/
+  .clearfix
+  %p
+    %h3 Spawar
+    %i Aug 2007 - Feb 2011
+    %br/
+    Developer. Created a ruby on rails ship tracking platform for all ships, submarines, planes, and other mobile objects in the Pacific that would incorporate real world news feeds in order to best predict which ships were in the most amount of danger at any given time. Also did real time traffic analysis of all data being sent between ships in order to detect anomalies/intrusions.
+    .skills
+      %h4 Skills and technologies used:
+      .code
+        %h4 Code
+        %ul
+          %li HTML/javascript
+          %li Varnish
+          %li Apache
+          %li haml/sass
+          %li Ruby on Rails
+          %li Visual Studio
+          %li Git
+      .design
+        %h4 Design
+        %ul
+          %li Photoshop
+          %li Inkscape
+          %li Gimp
+    %br/
+  .clearfix
+#personal_projects
+  %h2 Personal Projects
+  %p
+    %h3 Children's Books
+    Worked on creating digital books for children. Created
+    = succeed "," do
+      %a{:href => "http://files.jjcm.org/book/"} several working prototypes in html/javascript as a proof of concept
+    then hired artists to draw out three separate stories. After finding that the performance of the html5 implementation of the book would not run at acceptable framerates on mobile devices, hired developers to create native IOS, Android, and Windows versions of the parallax engine according to spec. Due to having to create separate implementations of each book (instead of creating one html5 based one and releasing on all platforms at once), changed the business model from the original, free and donation supported model to a paid one. The first book is now in the
+    = succeed "." do
+      %a{:href => "https://itunes.apple.com/us/app/the-girl-who-dreamed-of-africa/id631927316?mt=8"} app store here
+  %p
+    %h3 Lama Rama
+    A mobile/desktop game that uses accelerometer input from mobile devices in order to play the game on a desktop with others. Early prototype seen
+    = succeed "." do
+      %a{:href => "http://files.jjcm.org/game/game.mov"} here
+    Created all the graphics for the game, including sprites, backgrounds,
+    = succeed "," do
+      %a{:href => "http://files.jjcm.org/OpeningScreenWinphone2.png"} intro screens and logos
+    etc. Game is currently in talks with publishers.
+%div
+  %h2 Education
+  %p
+    %h3 Loyola Marymount University
+    %i Bachelors in Computer Science
+  %p
+    %h3 Hawaii Pacific University
+    %i Bachelors in Computer Science

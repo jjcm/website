@@ -1,0 +1,774 @@
+---
+title: How To Play Phantom Assassin
+body_class: index
+layout: none
+---
+<!--kappa-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Exo+2:100italic' rel='stylesheet' type='text/css'>
+:sass
+  #nav
+    ul
+      list-style: none
+      padding: 0px
+      margin: 20px
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.75)
+      height: 40px
+      width: 222px
+      a
+        li
+          background-color: #363636
+          float: left
+          color: #fff
+          margin-right: 1px
+          height: 40px
+          width: 40px
+          text-align: center
+          text-indent: -9999px
+          background-image: url('http://jjcm.org/images/header.png')
+        li:hover
+          cursor: pointer
+          opacity: 0.95
+        li#profileLink
+          width: 140px
+        li#artLink
+          background-position: -141px
+        li#blogLink
+          background-position: -182px
+      a:last-child
+        li
+          margin-right: 0px
+  h1
+    font-family: 'Open Sans', sans-serif
+    font-size: 80px
+    text-transform: uppercase
+    margin-top: -20px
+  .howToPlay
+    font-family: 'Open Sans', sans-serif
+    font-size: 40px
+    text-transform: uppercase
+  h2
+    font-family: 'Open Sans', sans-serif
+    font-size: 40px
+    margin-bottom: 32px
+    margin-top: 92px
+    text-transform: uppercase
+  h3
+    font-family: 'Exo', sans-serif
+    font-weight: 100
+    font-style: italic
+    font-size: 16px
+    margin-top: 40px
+  p
+    line-height: 150%
+  a
+    color: #067dec
+    text-decoration: none
+    
+
+  body
+    background-color: #2d2d2b 
+    font-family: arial, helvetica, sans-serif
+    font-size: 16px
+    color: #ddd
+  video
+    margin-bottom: 32px
+  #introContainer
+    height: 252px
+  #profilePic
+    float: left
+  #quizContainer
+    min-width: 1024px
+    height: 616px
+  #quiz
+    box-sizing: border-box
+    background-image: url(itemBg.jpg)
+    width: 1024px
+    height: 594px
+    padding-top: 180px
+  #results
+    display: none
+    height: 516px
+    table
+      border-spacing: 0px
+    #lineSpacerBecauseImBadAtHTMLConventionsAndItsLateAndIWantToSleep
+      background-color: #aaa
+      height: 1px
+  #intro
+    width: 628px
+    float: left
+    margin-left: 40px
+    p:first-child
+      margin-top: 0px
+  #itemBuild
+    width: 1024px
+    h2
+      margin-top: 64px
+  #content
+    width: 1024px
+    margin-left: auto
+    margin-right: auto
+  #message
+    text-decoration: none
+    margin: 20px
+    margin-left: auto
+    margin-right: auto
+    width: 650px
+    padding: 20px
+    padding-left: 30px
+    background-color: #067dec
+    font-family: 'Open Sans', sans-serif
+    font-size: 26px
+  #answers
+    margin: 10px
+    margin-left: auto
+    margin-right: auto
+    width: 700px
+    font-family: 'Open Sans', sans-serif
+    text-transform: uppercase
+    font-size: 26px
+    div
+      float: left
+      width: 200px
+      padding: 10px
+      padding-top: 20px
+      padding-bottom: 20px
+      background-color: #067dec
+      text-align: center
+      cursor: pointer
+      margin-right: 20px
+    div:last-child
+      margin-right: 0px
+    div:hover
+      background-color: #168dfc
+  #description
+    color: #fff
+    padding: 20px
+    text-align: center
+    height: 112px
+  //prng
+  #prngGraph
+    margin-top: 40px
+  .quote
+    text-align: center
+    font-family: 'Exo', Georgia, serif
+    font-style: italic
+    font-size: 28px
+    margin: 40px
+    color: #fff
+  #canvasLabel
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+    font-size: 14px
+    color: #666
+    margin-top: 4px
+    text-align: center
+    #colorLabels
+      color: #aaa
+      width: 600px
+      margin-left: auto
+      margin-right: auto
+      height: 40px
+      margin-top: 10px
+      .label
+        float: left
+        margin-left: 30px
+      .four, .one
+        width: 20px
+        height: 20px
+        display: inline-block
+        position: relative
+        top: 5px
+      .four
+        background-color: #168dfc
+      .one
+        background-color: rgba(250,250,250,1)
+  #build
+    .step
+      width: 200px
+      font-size: 10px
+      font-family: sans-serif
+      clear: bottom
+      padding-top: 10px
+      padding-bottom: 10px
+      margin: 10px
+      color: #fff
+      .item
+        margin: 10px
+        margin-left: auto
+        margin-right: auto
+        background-color: #666
+        background-repeat: no-repeat
+        width: 85px
+        height: 64px
+      .orSpacer
+        text-align: center
+      .description
+        display: none
+      .tango
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/tango_lg.png)
+      .clarity
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/clarity_lg.png)
+      .gg
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/branches_lg.png)
+      .ringOfProtection
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/ring_of_protection_lg.png)
+      .ringOfBasilus
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/ring_of_basilius_lg.png)
+      .powerTreads
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/power_treads_lg.png)
+      .phaseBoots
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/phase_boots_lg.png)
+      .medallion
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/medallion_of_courage_lg.png)
+      .vlads
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/vladmir_lg.png)
+      .bkb
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/black_king_bar_lg.png)
+      .deso
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/desolator_lg.png)
+      .helmOfDom
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/helm_of_the_dominator_lg.png)
+      .morbidMask
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/lifesteal_lg.png)
+      .mkb
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/monkey_king_bar_lg.png)
+      .maelstrom
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/maelstrom_lg.png)
+      .basher
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/basher_lg.png)
+      .yasha
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/yasha_lg.png)
+      .butterfly
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/butterfly_lg.png)
+      .satanic
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/satanic_lg.png)
+      .mjollnir
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/mjollnir_lg.png)
+      .abyssal
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/abyssal_blade_lg.png)
+      .manta
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/manta_lg.png)
+      .skadi
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/skadi_lg.png)
+      .divine
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/rapier_lg.png)
+      .tpboots
+        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/travel_boots_lg.png)
+  #skillBuild
+    .build
+      margin-top: 40px
+      padding-bottom: 72px
+      div
+        float: left
+        width: 62px
+        height: 62px
+        margin: 1px
+      .q
+        background-image: url(q.jpg)
+      .w
+        background-image: url(w.jpg)
+      .e
+        background-image: url(e.jpg)
+      .r
+        background-image: url(r.jpg)
+      .s
+        background-image: url(s.jpg)
+
+
+#nav
+  %ul
+    %a{:href => "/"}
+      %li#profileLink
+        jjcm
+    %a{:href => "/art"}
+      %li#artLink
+        art
+    %a{:href => "/blog"}
+      %li#blogLink
+        blog
+#content
+  #guide
+    .howToPlay 
+      How To Play 
+    %h1 Phantom Assassin
+    %img#profilePic{:src => "paProfile.jpg", :width => "356px", :height => "252px"}
+    #introContainer
+      #intro
+        %p
+          Recently I've been trying to climb into the top 100 PA players on dotabuff. Right now the 
+          %a{:href => "dotabuffRecord.png"} highest I've gotten is 588th, 
+          but in my time getting there I've learned a few advanced mechanics and non-traditional item builds.
+        %p
+          Knowing what role you're playing is the first decision you'll want to make. I personally think that with changes to PA's blur (essentially making her ganks go unseen on the minimap) PA fits best into a 2 or a 3 position. If built right, PA can be extremely effective in the early/mid game - a big departure from her previous position as a late-online position 1 hero. PA is definitely viable in any of the 1-3 positions though, but how you play her will be drastically different. In this guide I'll aim to show you how to play each style.
+
+    #itemBuild
+      %h2 Item build
+      %p
+        I studyied a lot of the 
+        %a{:href => "http://www.dotabuff.com/heroes/phantom-assassin/players"} 
+          dotabuff top 100 PA players'
+        item builds. Specifically, I looked at players who had diverse builds between matches. This way I could see how different item builds did against other ones, without the player being an influencing factor. By looking at the 
+        %a{:href => "http://www.dotabuff.com/players/92808635/items?date=&faction=&hero=phantom-assassin&lobby_type=&game_mode=&duration=&metric=used"}
+          items used and their win rates for these players
+        I found that three items in particular contributed to an extremely high win rate on PA: Medallion of Courage, Manta Style, and Desolator. 
+      %p
+        I started incorporating these items into my build rather than the standard battlefury approach, and
+        %a{:href => "http://www.dotabuff.com/players/24323638/matches?date=&faction=&hero=phantom-assassin&lobby_type=&game_mode=&region=&duration="}
+          the results have been impressive
+        to say the least. My PA win rate without medallion? 50%. With medallion? 75% (15-5 at the time I'm writing this). After trying out a variety of items and builds, I compiled my build suggestions into the program below. Answer the following questions and it will suggest you an item build to pursue based on the role you want to play, your lane, and other conditions of the game. Hover over each item for descriptions of why you should use it in that situation.
+
+
+      #quizContainer
+        #quiz
+          #message
+          #answers
+        #results
+          %table
+            %tr#build
+            %tr#lineSpacerBecauseImBadAtHTMLConventionsAndItsLateAndIWantToSleep
+              %td{:colspan => 322, :style => "padding: 0px;"}
+            %tr{:style => "border-top: 1px solid #fff;"}
+              %td#description{:colspan => 322}
+
+
+    #position2
+      %h2 Midlane/Offlane Position 2/3
+      %p
+        Use your dagger to farm. Stay away from the wave unless you know its absolutely safe. By only using dagger, you should be able to get 3 out of the 4 creeps in the wave. As an offlane or mid, that's plenty. Use your mana pot once you hit ~75 mana or so. The extra boost in mana should be enough until you get another item to help you sustain your dagger spam (medallion/RoB). If you're mid, gank once you're 6 or if you have an opportunistic rune. If you're offlane, keep a tp scroll ready and watch the other lanes. Dagger can be lethal to someone diving a tower. Once you have medallion, leave your lane for good and start the gank train.
+      %h3 Dagger can let you farm in even the most dangerous of lanes
+      %video{:loop => "true", :autoplay => "true"}
+        %source{:src => "daggerFarming.mp4", :type => "video/mp4"}
+      %p
+        Work towards your early game items as suggested in the build. Your objective as a 2 or a 3 is to create chaos so your position 1 can farm. Rotate often - with blur they wont see your rotations on the minimap. If you're ganking everywhere, they'll devote more resources to trying to find you and less resources to trying to shut down your carry. Keep them worried, eat their supports. Get in, crit, then get out and run to another lane. With PA it's all about cardio.
+      %p
+        If you're building deso, as soon as you have that and vlads go rosh. Dont worry about smoking in, just walk right into the rosh pit. Remember you wont show up on the minimap with blur. As long as your blur status doesnt disappear when you walk in, you didnt show up on the minimap. With deso/medallion/vlads, you can take rosh in about 30-40 seconds. Use your dagger to break his spell shield then blink onto him once it's broken. Keep spamming medallion and blink strike. 
+    #position1
+      %h2 Safelane Position 1
+      %p
+        If a positon 2 PA's job is to create chaos, a position 1 PA's job is to survive the chaos. Don't take too many risks, blink into battle to clean up. Be careful wasting your bkb charges - remember you're building for end game here, only blow your bkb if you know it's going to be worth it. You can consider going battlefury in the 1 position, but I like going maelstrom if I need something to help farm early. Late game if you're going satanic/skadi, combined with blur you're going to be tanky as all hell. If you toss mjollnir's static charge on yourself, it's going to be very difficult to bring you down. 
+    #blur
+      %h2 Blur
+      %p 
+        Blur is PA's passive. Most people only use the evasion portion of the ability. The good players take advantage of the fact that it also acts as a radar - alerting you any time an enemy (even invisible ones) are within 1600 units of you. Keep a sharp eye on that icon. If it disappears, you might be getting smoke ganked or there might be an invisible unit nearby. This ability is particularly good against stealth units. When you see it go down, toss out some dust and attack them before they jump on you. 
+      %h3 Detecting Invisible Units With Blur
+      %video{:loop => "true", :autoplay => "true"}
+        %source{:src => "blur.mp4", :type => "video/mp4"}
+      %p
+        Scouting rosh with blur is also quite easy regardless of which side you're on. Standing in these positions will reveal wheither or not anyone is currently in the rosh pit without putting you in harms way. The green circle represents blur's distance (1600 units).
+      %h3 Scouting Roshan From Radiant
+      %img{:src => "blurRosh1.jpg", :width => "1024px", :height => "640px", :style => "margin-bottom: 20px;"}
+      %img{:src => "blurRosh2.jpg", :width => "1024px", :height => "640px"}
+      %h3 Scouting Roshan From Dire
+      %img{:src => "blurRosh3.jpg", :width => "1024px", :height => "640px", :style => "margin-bottom: 20px;"}
+      %img{:src => "blurRosh4.jpg", :width => "1024px", :height => "640px"}
+      %p 
+        Also take advantage of the fact that if the icon is being displayed, you aren't being displayed on the minimap. Sneak into places you aren't expected to be to find ganks, push lanes without the enemy realizing you're pushing them. I've gotten plenty of rax because the enemy didnt realize I was pushing their lane down. Supports will often tp to a lane without looking, expecting only to find creeps. Make them pay for their mistake.
+    #prng
+      %h2
+        Priming the prng
+      %p
+        PA is notable for one thing - her crits. They're the most powerful in the game, the largest possible source of single instance damage. The feeling of one-shotting an enemy hero is something that few other abilities can match. However, at a tiny 15%, the chance to proc is pretty low and the odds are stacked against you. Like any good poker player though, we can always improve the odds. Enter PRNG. 
+      %p
+        PRNG stands for Pseudo-Random Number Generation. Essentially it's a method of random number generation that more evenly distributes the chances of success. In the context of dota, it means that there's a far smaller chance of being "streaky" (having a ton of crits in a row, or none at all for a long period of time). If you have the time, take a look at the 
+        %a{:href => "http://dota2.gamepedia.com/Pseudo-random_distribution"}
+          gamepedia wiki entry on PRNG.
+        The basics though work like this: PA's actual chance to crit on her first attack is 3.222% (not 15%). However, each subsequent attack she does after that increases her chance to crit by another 3.222%. So her 2nd attack will have a 6.444% chance to crit, her 3rd attack will have a 9.666% chance to crit, and so on until the crit procs. Once the crit procs, the percent is reset back to 3.222%. This averages out to her critting 15% of the time over many hits, but each individual attack will have a far different chance to crit on its own. 
+      %p
+        The quick ones of you will notice that this system can be gamed. If you count your attacks since your last crit, you can compute the probability of a crit on your next attack. The returns aren't that great though - a 3% increase each attack isnt much. Luckily for us, PA doesn't just attack an enemy once then run away. Blink strike gives you an attack speed buff for the next four attacks, so the actual question we should be asking isn't 
+      .quote
+        "What's the probability of me critting on my next attack?" 
+      %p
+        Instead, it should be:
+      .quote
+        "What's the probability of me critting <strong>in the next four attacks</strong>?"
+      %p
+        A single 3% increase across four attacks compounds the chance. Four 3% increases compounds the pain even more. Here're the raw numbers showing what the percent to crit is after a certain amount of attacks without critting. 
+      %canvas#prngGraph{:width => "1024px", :height => "400px"}
+      #canvasLabel
+        Number of hits without critting
+        #colorLabels
+          .label
+            .one
+            Chance your next attack will hit
+          
+          .label
+            .four
+            Chance one of your next four attacks will hit
+      %p
+        The takeaway here? You can, and should, be priming your crit before you jump on a hero. If you hit a creep just four times (without critting) before you blink strike a hero, your chance of landing a crit jumps to over 50%. Priming the prng with seven attacks gives you an almost 75% chance to crit. Here's a video of this concept in action - we'll count the number of times we get a crit in the next four attacks after hitting sven seven times first. 
+
+      //VIDEO
+      %h3
+        The Probability of Critting After 7 Primed Attacks
+      %video{:loop => "true", :autoplay => "true"}
+        %source{:src => "prngPriming.mp4", :type => "video/mp4"}
+
+      %p
+        Fourteen out of the sixteen, or 88%. A bit more than the predicted 75%, but still we can see the power in priming your prng. If you're unsure whether or not you should jump in on a gank, consider the number of attacks you've primed. If there's a bunch in the queue, you have a higher chance of getting a crit off in the gank and making it out with a kill.
+
+    #skillBuild
+      %h2
+        Skill Build
+      %p
+        I generally go one of two very similar skill builds. If there's a lot of physical harrass in lane I'll go blur at level two:
+      .build
+        .q
+        .e
+        .q
+        .w
+        .q
+        .r
+        .q
+        .w
+        .w
+        .w
+        .r
+        .e
+        .e
+        .e
+        .s
+        .r
+      %p
+        If I need the extra mobility to evade stuns or as an escape, I'll get blink strike at two instead.
+      .build
+        .q
+        .w
+        .q
+        .e
+        .q
+        .r
+        .q
+        .w
+        .w
+        .w
+        .r
+        .e
+        .e
+        .e
+        .s
+        .r
+      %p
+        If you want to do a very early rosh, you can max out blur first instead. With maxed out blur you should be able to take rosh with only a medallion, but it cuts down on a lot of your early game ganking capabilities, so it's pretty situational.
+    #conclusion
+      %h2
+        I'M OUT OF WISDOM. GO WRECK HOUSE. GOOD LUCK.
+
+:javascript
+  function display(s, option1, option2, option3){
+    document.getElementById('message').innerHTML = s;
+    var answers = document.getElementById('answers');
+    answers.innerHTML = "";
+    answers.appendChild(createAnswerButton(option1));
+    answers.appendChild(createAnswerButton(option2));
+    if(option3)
+      answers.appendChild(createAnswerButton(option3));
+  }
+  function createAnswerButton(option){
+    var a = document.createElement('div');
+    a.innerHTML = option[0];
+    a.onclick = option[1];
+    return(a);
+  }
+
+  var decisionTree = {
+    checkLane : function(){
+      display("What lane are you in?",
+      ["safe", function(){decisionVariables.buildTips.lane = "safe"; decisionTree.checkFarmPriority()}], 
+      ["offlane", function(){decisionVariables.buildTips.lane = "offlane"; decisionTree.checkFarmPriority()}], 
+      ["middle", function(){decisionVariables.buildTips.lane = "middle"; decisionTree.checkFarmPriority()}]);
+    },
+    checkFarmPriority : function(){
+      display("What farm priority are you?",
+      ["1", function(){decisionVariables.buildTips.farmPriority = 1; decisionTree.checkDamageType()}], 
+      ["2", function(){decisionVariables.buildTips.farmPriority = 2; decisionTree.checkDamageType()}], 
+      ["3", function(){decisionVariables.buildTips.farmPriority = 3; decisionTree.checkDamageType()}]);
+    },
+    checkDamageType : function(){
+      display("Does the enemy have a lot of burst magic damage?",
+      ["yes", function(){decisionVariables.buildTips.enemyDamageType = "magical"; decisionTree.checkLockdown()}], 
+      ["no", function(){decisionVariables.buildTips.enemyDamageType = "physical"; decisionTree.checkLockdown()}]);
+    },
+    checkLockdown : function(){
+      display("Does the enemy have a lot of lockdown (stuns/hexes/etc)?",
+      ["yes", function(){decisionVariables.buildTips.enemyLockdown = true; decisionTree.checkLockdown2()}], 
+      ["no", function(){decisionVariables.buildTips.enemyLockdown = false; decisionTree.cmAura()}]);
+    },
+    checkLockdown2 : function(){
+      display("Does the majority of the lockdown go through BKB?", 
+      ["yes", function(){decisionVariables.buildTips.enemyLockdown = false; decisionTree.checkMKB()}], 
+      ["no", function(){decisionTree.checkMKB()}]);
+    },
+    checkMKB : function(){
+      display("Will the enemy probably build a MKB against you?", 
+      ["yes", function(){decisionVariables.buildTips.enemyMKB = true; decisionTree.enemyEvasion()}], 
+      ["no", function(){decisionVariables.buildTips.enemyMKB = false; decisionTree.enemyEvasion()}]);
+    },
+    enemyEvasion : function(){
+      display("Will the enemy have evasion (riki cloud, brewmaster passive, heavens halbred, butterfly)?", 
+      ["yes", function(){decisionVariables.buildTips.enemyEvasion = true; decisionTree.omniRepel()}], 
+      ["no", function(){decisionVariables.buildTips.enemyEvasion = false; decisionTree.omniRepel()}]);
+    },
+    omniRepel : function(){
+      display("Do you have an omniknight on your team?", 
+      ["yes", function(){decisionVariables.buildTips.omniRepel = true; decisionTree.vladsAura()}], 
+      ["no", function(){decisionVariables.buildTips.omniRepel = false; decisionTree.vladsAura()}]);
+    },
+    vladsAura : function(){
+      display("Do you have a natural vlads carrier on your team (i.e. Lycan)?", 
+      ["yes", function(){decisionVariables.buildTips.vladsCarrier = true; decisionTree.cmAura()}], 
+      ["no", function(){decisionVariables.buildTips.vladsCarrier = false; decisionTree.cmAura()}]);
+    },
+    cmAura : function(){
+      display("Do you have a Crystal Maiden on your team for that sweet, sweet mana aura?", 
+      ["yes", function(){decisionVariables.buildTips.cmAura = true; decisionTree.canMicro()}], 
+      ["no", function(){decisionVariables.buildTips.cmAura = false; decisionTree.canMicro()}]);
+    },
+    canMicro : function(){
+      display("Be honest - can you micro?", 
+      ["yes", function(){decisionVariables.buildTips.playerCanMicro = true; decisionTree.generateBuild()}], 
+      ["no", function(){decisionVariables.buildTips.playerCanMicro = false; decisionTree.generateBuild()}]);
+    },
+
+    generateBuild : function(){
+      decisionTree.suggestBuild();
+      document.getElementById('message').style.display = "none";
+      document.getElementById('answers').style.display = "none";
+      document.getElementById('quiz').style.display = "none";
+      document.getElementById('results').style.display = "block";
+      var dom = document.getElementById('build');
+
+      for(var i = 0; i < decisionTree.build.length; i++){
+        var step = document.createElement('td');
+        step.className = "step";
+        console.log(decisionTree.build[i]);
+        var deb = decisionTree.build[i];
+        for(var j = 0; j < decisionTree.build[i][0].length; j++){
+          var item = document.createElement('div');
+          item.className = "item " + decisionTree.build[i][0][j];
+          //item.innerHTML = decisionTree.build[i][0][j];
+          step.appendChild(item);
+          if(j + 1 < decisionTree.build[i][0].length){
+            var spacer = document.createElement('div');
+            spacer.className = "orSpacer";
+            spacer.innerHTML = i == 0 ? "AND" : "OR";
+            step.appendChild(spacer);
+          }
+        }
+        if(decisionTree.build[i][1]){
+          var description = document.createElement('div');
+          description.className = "description";
+          description.innerHTML = decisionTree.build[i][1];
+          step.appendChild(description);
+        }
+
+        step.onmouseenter = function(){
+          decisionTree.showDescription(this.children[this.children.length - 1].innerHTML);
+        }
+        dom.appendChild(step);
+        var step = document.createElement('td');
+        if(i != decisionTree.build.length - 1){
+          step.className = "ministep";
+          step.innerHTML = "&#9654;";
+          dom.appendChild(step);
+        }
+      }
+    },
+
+    showDescription : function(s){
+      document.getElementById('description').innerHTML = s;
+    },
+
+    build : [],
+
+    suggestBuild : function(){
+      var build = [];
+
+      //if there's no cm aura, get a basilus
+      var vlads = false;
+      if(!(decisionVariables.buildTips.cmAura && decisionVariables.buildTips.farmPriority == 1)){
+        build.push([["tango", "clarity", "gg", "gg", "ringOfProtection"], "The core starting items. We're gonna build a RoB. Get the armor first. The +3 armor is better than the 0.2 mana/s, and you can buy the mask in lane if you arent mid."]);
+        build.push([["ringOfBasilus"], "If there's no CM aura, you're gonna want to build a ring of basilus. It'll keep your mana up so you can farm with dagger."]);
+      }
+      else {
+        build.push([["tango", "clarity", "gg", "gg"], "The core starting items"]);
+      }
+
+      //boots
+      if(decisionVariables.buildTips.enemyDamageType == "magical"){
+        build.push([["powerTreads"], "If the enemy has a lot of burst magic damage, power treads will provide you with some extra HP, and the increased attack speed is welcomed too."]);
+      }
+      else {
+        build.push([["phaseBoots"], "If the enemy doesn't have a lot of burst magic damage, then phase is a great choice. Your overall DPS in the end game will be greater with power treads, but early game phase will give you higher crits (which when combined with prng priming you'll be more likely to get crits in your first attacks, making the lack of attack speed increase less of a detriment). The biggest reason I usually go phase though is the mobility. With PA you're going to want to be in and out of battle as fast as possible. Dont give the enemy time to target you. Hit and run."]);
+      }
+
+      //medallion
+      build.push([["medallion"], "My overall favorite item on PA. Goes through magic immunity. 0 mana cost. Removes more armor than a deso. Makes PA viable early game. Combine it with deso to get one hit kills before 20 minutes. This is the only item I recommend every game with PA. Spam the hell out of it. Jungling? Use it. Need to push a lane? Use it on creeps. The only time it shouldn't be off cooldown is if you're running away from a fight and you need the extra armor."]);
+
+      //vlads
+      if(decisionVariables.buildTips.vladsCarrier == false){
+        build.push([["vlads"], "Vlads is a great all around item for PA. Provides lifesteal, doesnt take an orb, gives mana regen, gives some armor. Unless you're playing a 1 (in which case you'll probably go satanic) or someone else on the team will get one, you should almost always get it."]);
+      }
+
+      var halfDPSItem = false;
+      var satanic = false;
+      var earlybkb = decisionVariables.buildTips.enemyLockdown && !decisionVariables.buildTips.omniRepel;
+      //deso versus satanic
+      if(decisionVariables.buildTips.farmPriority != 1){
+        if(earlybkb){
+          build.push([["bkb"], "Deso is more fun, but if the enemy has lockdown you really need to get your BKB online first."]);
+        }
+        build.push([["deso"], "Deso is an amazingly cost effective damage item if you can afford to give up the orb slot. Unless you're a position 1 (in which case satanic is probably a better orb), you should almost always go deso. When combined with medallion you can get very early game 1 shot kills. Another great thing is if you have medallion, vlads, and deso, you can solo rosh in about 30 seconds. With blur making you not appear on minimap, you rarely even need smoke - just walk right into the rosh pit and collect your aegis."]);
+      }
+      else {
+        if(decisionVariables.buildTips.playerCanMicro){
+          build.push([["helmOfDom"], "Dom those creeps. Stack often."]);
+        }
+        else {
+          build.push([["morbidMask", "helmOfDom"], "If you can't micro, you may want to consider only picking up the morbid mask component of what eventually will be a satanic, at least for now. For 950 gold you'll get +20 damage, some armor, and some hp regen. That's pretty cost effective, but the real benefit in HotD is the creep you can control. It gives you a creep you can blink to if you need to escape, but if you aren't going to utilize that, your gold is probably better spent on getting your BKB online faster."]);
+        }
+        satanic = true;
+        if(earlybkb){
+          build.push([["bkb"], "A carry can't get safe farm against a team with lockdown unless he has a bkb. Simple as that."]);
+        }
+        if(decisionVariables.buildTips.enemyEvasion){
+          build.push([["mkb"], "The enemy has, or will have evasion, and you need your first big DPS item. Go MKB."]);
+        }
+        else {
+          build.push([["maelstrom", "basher", "yasha"], "You'll want your first big dps item at this point. If you're having trouble chasing people down, yasha or basher are great. If you can afk farm or if the enemy has a ton of armor, mjollnir will be a better choice as it'll let you farm faster, it'll add some magic damage to your attack, and late game with static charge will severely punish anyone who attacks you."]);
+          halfDPSItem = true;
+        }
+      }
+
+      //latebkb... or not?
+      if(!earlybkb){
+        if(decisionVariables.buildTips.enemyDamageType == "physical" && !decisionVariables.buildTips.enemyMKB){
+          if(decisionVariables.buildTips.omniRepel){
+            build.push([["butterfly"], "Very, very rarely would I recommend butterfly. However, if the enemy only has physical damage, probably isn't going to get mkb, and doesn't have any lockdown, it can be not only viable, but hilarious."]);
+          }
+          else { 
+            build.push([["butterfly", "bkb"], "Very, very rarely would I recommend butterfly. However, if the enemy only has physical damage, probably isn't going to get mkb, doesn't have any lockdown, and isn't going to go blademail, it can be not only viable, but hilarious. If any of those conditions are false however, go bkb."]);
+          }
+        } 
+        else{
+          if(!decisionVariables.buildTips.omniRepel){
+            build.push([["bkb"], "You can't deal that sweet DPS if you're on lockdown or dead. Get a bkb, wreck house."]);
+          }
+        }
+      } 
+
+      if(satanic){
+        build.push([["satanic"], "As a position 1, you're going to have more time to get farmed, but it's going to be more important that you stay alive through the duration of the fight. Satanic, especially if activated at the right time, can make PA immensely hard to take down."]);
+      }
+
+      if(halfDPSItem){
+        build.push([["mjollnir", "abyssal", "manta"], "Finish whichever one you started building earlier."]);
+      }
+      else{
+        build.push([["mjollnir", "abyssal", "manta"], "If you're having trouble chasing people down, yasha or basher are great. If the enemy has a ton of armor mjollnir will be a better choice as it'll add some magic damage to your attack, and late game with static charge it will severely punish anyone who attacks you."]);
+      }
+
+      if(satanic){
+        build.push([["skadi"], "Stacks with your satanic. Makes you even harder to take down. Shuts down enemy carries. The extra HP also syncs really well with static charge if you have a mjollnir."]);
+      }
+
+      build.push([["mjollnir", "abyssal", "manta", "divine", "tpboots"], "Divine should only be purchased <del>as a last ditch effort in extreme circumstances</del> WHEN YOU WANT TO BALL OUT OF CONTROL.<span style='background-image: url(BONES.png); width: 32px; height: 32px; display: inline-block; position: relative; top: 6px; '></span>"]);
+
+      decisionTree.build = build;
+      console.log(build);
+
+    }
+  }
+
+
+  var decisionVariables = {
+    timeTips : {
+      roshUp : true,
+      countingPrng : false,
+      checkingBlur : false,
+      usingMedallion : false
+    },
+    buildTips : {
+      farmPriority : 2,
+      lane : "middle",
+      enemyDamageType : "physical",
+      enemyLockdown : true,
+      enemyMKB : true,
+      omniRepel : false,
+      cmAura : false,
+      vladsCarrier : false,
+      playerCanMicro : false
+    }
+  };
+  var prngStats = {
+    cValue : 0.0322,
+    computeForN : function(n) {
+      var currentC = n;
+      var chance = 1;
+      for(var i = 0; i < 4; i++){
+        chance = chance * ( 1 - currentC );
+        currentC = currentC + prngStats.cValue;
+      }
+      return 1 - chance;
+    },
+    listStats : function(){
+      maxAttacks = 1 / prngStats.cValue;
+      attackIndexes = [];
+      attackValues = [];
+      for(var i = 0; i < maxAttacks - 1; i++){
+        var attackPercentage = prngStats.computeForN(i * prngStats.cValue) * 100;
+        //floating point corrections
+        if(attackPercentage > 100)
+          attackPercentage = 99.99;
+        attackValues.push(Math.round(attackPercentage * 100) / 100);
+      }
+      return attackValues;
+    }
+
+  };
+
+  decisionTree.checkLane();
+
+
+  document.addEventListener("DOMContentLoaded", function(event) { 
+    var ctx = document.getElementById("prngGraph").getContext("2d");
+    var labels = [];
+    singleAttack = [];
+    for(var i = 0; i < 31; i++){ 
+      labels.push(i); 
+      singleAttack.push(Math.round((i+1) * 3.222 * 100) / 100);
+    }
+    var multipleAttacks = prngStats.listStats();
+    console.log(multipleAttacks);
+    var data = {
+      labels: labels,
+      datasets: [
+          {
+              label: "Chance a single attack will crit",
+              fillColor: "rgba(255,255,255,0.2)",
+              strokeColor: "rgba(255,255,255,1)",
+              pointColor: "rgba(255,255,255,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(220,220,220,1)",
+              data: singleAttack
+          },
+          {
+              label: "Chance one of four attacks will crit",
+              fillColor: "rgba(006,125,236,0.2)",
+              strokeColor: "rgba(006,125,236,1)",
+              pointColor: "rgba(006,125,236,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(151,187,205,1)",
+              data: multipleAttacks
+          }
+      ]
+    };
+    var options = {
+      scaleLabel: "<%=value%>%",
+      multiTooltipTemplate: "<%= value %>% chance to crit",
+    };
+    var prngChart = new Chart(ctx).Line(data, options);
+  });
+
+%script{:type => "text/javascript", :src => "Chart.js"}

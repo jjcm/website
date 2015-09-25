@@ -1,0 +1,94 @@
+---
+title: PRO SURFER ARYN
+body_class: index
+---
+
+= javascript_include_tag 'parallax.min.js'
+:sass
+  #blogContainer
+    margin-left: 0px
+  .step
+    padding: 0px
+  .pageContainer
+    width: 1324px
+    height: 968px
+    overflow: hidden
+    padding-left: -20px
+    padding-top: -20px
+    position: absolute
+    top: 68px
+    ul
+      margin: 0px
+      padding: 0px
+    #parallax1
+      left: -250px
+      top: -100px
+  #ipadParallaxBg
+    margin-left: -246px
+  .nobg
+    background: none
+    box-shadow: none
+  center
+    position: relative
+    top: 1100px
+
+  
+    
+
+
+#blogContainer
+
+  .step.nobg
+    #parallaxContainer1.pageContainer
+      %ul#parallax1{"data-scalar-y" => 5, "data-scalar-x" => 40, "clipRelativeInput" => "true"}
+        %li.layer{"data-depth" => "0.20"}
+          =image_tag "http://files.jjcm.org/arynsurf/1.jpg"
+        %li.layer{"data-depth" => "0.40"}
+          =image_tag "http://files.jjcm.org/arynsurf/2.png"
+        %li.layer{"data-depth" => "0.50"}
+          =image_tag "http://files.jjcm.org/arynsurf/3.png"
+        %li.layer{"data-depth" => "0.60"}
+          =image_tag "http://files.jjcm.org/arynsurf/4.png"
+%center
+  %h3
+    I'm sorry we aren't going surfing in November :(
+  %h1
+    BUT THAT DOESNT MEAN WE ARENT GOING. 
+  %h3
+    Start working on those wave riding skills.
+  %h3
+    <3
+
+
+
+:javascript
+  var numberOfPages = 6;
+  var scenes = [];
+  console.log('hi');
+  for(i = 1; i <= numberOfPages; i++){
+    scenes.push(new Parallax(document.getElementById('parallax' + i)));
+    console.log(scenes[i]);
+  }
+  var parallaxContainer = document.getElementById('parallaxContainer');
+  var page = 4;
+  /*
+  parallaxContainer.onmouseenter = function(){enableParallax()};
+  parallaxContainer.onmouseleave = function(){disableParallax()};
+  setTimeout(function(){ parallax.disable()}, 1000);
+  function enableParallax(){
+    if(!parallaxEnabled){
+      parallax.enable();
+      parallaxEnabled = true;
+      console.log('hi');
+    }
+  }
+  function disableParallax(){
+    if(parallaxEnabled){
+      parallax.disable();
+      parallaxEnabled = false;
+      console.log('hi');
+    }
+  }
+  */
+
+
