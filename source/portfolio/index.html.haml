@@ -173,7 +173,7 @@ body_class: index
       I made a children's book! I really wanted to do something interactive, so I started drafting up some prototypes in html5. I experimented with a bunch of effects, animations, and small games, but I eventually decided to start small and only use a basic parallax effect to increase the visual depth of the artwork. I hired an artist to do the illustrations and a coder to port over the 
       %a{:href => "http://files.jjcm.org/book/"}
         initial html5 prototypes. 
-      They sadly didn't have enough performance on mobile devices, so I needed it in native code. Once I had those parts done I crafted the UI. I was thinking of making the UI more interactive for the kids, but after talking to several parents and testing it with kids, the biggest response I got was that parents didn't want their kids playing another video game. They said that too much gamification often led their kids to ignore the content of the story, and just pay attention to the game. So I kept it simple, adding only the parallax effect and the ability for a kid to have the page read to them. I hired a voice artist, had him record the lines, packaged it,  and submitted it. Overall a very fun project which you can check out in the 
+      The html/js versions sadly didn't have enough performance on mobile devices, so I needed it in native code. Once I had those parts done I crafted the UI. I was thinking of making the UI more interactive for the kids, but after talking to several parents and testing it with kids, the biggest response I got was that parents didn't want their kids playing another video game. They said that too much gamification often led their kids to ignore the content of the story, and just pay attention to the game. So I kept it simple, adding only the parallax effect and the ability for a kid to have the page read to them. I hired a voice artist, had him record the lines, packaged it,  and submitted it. Overall a very fun project which you can check out in the 
       %a{:href => "https://itunes.apple.com/us/app/the-girl-who-dreamed-of-africa/id631927316?mt=8"} app store. 
     %p
       I have a second one in production now. It's amazing how much I've learned from the first one, I'm excited to see what I learn from the next. 
@@ -325,10 +325,19 @@ body_class: index
     #audioToggle
     #nextPage
 
+  .step
+    %p
+      Right now I'm working on a platform to more easily create parallax pages. One of the difficulties with the first book was that the artist could never see their art in motion right away. They would hand it off to me, I would write the code to enable the parallax, then we'd make a list of changes and repeat until we got it looking right. The turnaround time on it was simply too long, and the work was pretty repetative on my end. I figured this process could be made way better.
+    %p
+      I decided to make a site in node/angular that would allow the user to upload images, adjust the depth of each image, the x/y slide ratio, and the overall zoom of a page. This way the artist themselves could get it looking just like they imagined it in their head. The site exports json, which is what the IOS app reads natively - allowing for very easy conversion between the site and the native app. Check out the video below to see it in action!
+    %p
+      TODO
+
+
   .step#lamarama
     %h3 Lama Rama
     %p#lamaintro
-      Lama Rama is a mobile game I'm working on with some friends that utilizes gyro, face tracking, and cross device input to play. At first I was tasked with finding someone to do the artwork, but failing that I ended up doing it all myself. 
+      Lama Rama was a mobile game I was working on with some friends. We were in talks with Amazon to ship it as a flagship game with the release of their Amazon Fire phone. Tragically, our lead developer died and the game fell into stasis. I was in charge of all the the UI components and artwork. It was fun change of pace as I had never done game art before. 
     %p#lama1text
       This was the intro screen. I went through a lot of logo revisions. The name of the app changed a bunch, and what we wanted to convery in it also changed. This wasn't the actual final version, but it's the one that I was most happy with. Initially the game featured a llama (as in the animal) who guided the lama (as in the Dali Lama) through the game. This was later ditched, but I liked the logo that resulted from it.
 
@@ -365,13 +374,6 @@ body_class: index
       .fullwidth#ticketmaster
         = image_tag "/images/portfolio/ticketmaster.png"
       Ticketmaster app mockup for a Windows tablet.
-
-  .step.ui
-    %p
-      .fullwidth
-        = image_tag "/images/portfolio/nookLibrary.png"
-        = image_tag "/images/portfolio/nookLitigators.png", :style => "margin-left: 171px; margin-bottom: 40px; width: 700px; height: auto;"
-      Nook app mockup for a Windows tablet. 
 
   .step.ui.photomanipulation
     %h3 Photomanipulation
