@@ -55,6 +55,57 @@ body_class: index
     text-align: center
   #idid
     text-align: center
+
+  #sportsContainer
+    overflow: hidden
+    min-height: 626px
+    position: relative
+    .sportsStep
+      position: absolute
+      left: 100%
+      transition: left 0.3s ease-in-out
+      .vidWrapper
+        position: absolute
+        left: 0px
+        border: 1px solid #ccc
+        height: 624px
+        overflow: hidden
+      .deviceMotion
+        transition: transform 0.4s ease-in-out
+        transform: matrix3d(0.9,0,-0.02,-0.0005,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+        animation: devicemotion 9.53s infinite
+
+      p:nth-child(2)
+        margin-top: 0
+      p
+        width: 760px
+        box-sizing: border-box
+        padding-left: 414px
+    .previous
+      left: -100%
+    .current
+      left: 0%
+
+  @keyframes devicemotion 
+    0% 
+      transform: matrix3d(0.9,0,-0.02,-0.0004,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    13% 
+      transform: matrix3d(0.9,0,0.02,0.0004,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    25% 
+      transform: matrix3d(0.9,0,-0.02,-0.0004,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    36% 
+      transform: matrix3d(0.9,0,0.02,0.0002,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    47% 
+      transform: matrix3d(0.9,0,-0.02,-0.0003,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    54% 
+      transform: matrix3d(0.9,0,0.02,0.0002,0.00,1,0.00,0,0.02,0,1,0,0,0,0,1)
+    68%
+      transform: matrix3d(0.9,0,0.02,-0.0002,0.00,0.906,0.34,0.0003,-0.02,-0.34,0.94,0,0,0,0,1)
+    78%
+      transform: matrix3d(1,0,0.00,0,0.00,1,0.00,-0.0001,0,0,1,0,0,0,0,1)
+    89%
+      transform: matrix3d(1,0,0,0,0.00,1,0.34,0.0001,-0.02,-0.34,0.94,0,0,0,0,1)
+
   #lamarama
     background-image: url(../images/portfolio/lamaRamaBackground.png)
     height: 2868px
@@ -171,35 +222,38 @@ body_class: index
       This simple prototype is a great example of my day to day work. We wanted a richer experience for sports results when searching Bing.com on mobile devices. Click through each of the videos below to see the prototype each step of the way.
       #sportsContainer
         .sportsStep
-          %img.vid{:src => ""}
+          .vidWrapper
+            %video{:src => "../videos/sports0.mp4", :autoplay => "true", :loop => "true"}
           %p
             This was the start. The search results are pretty plain, and really don't offer anything other than a schedule and the score for the most recent game. It didn't feel immersive, it felt like your standard search.
-        .sportsStep
-          %video{:src => "../videos/sports1.mp4", :autoplay => "true", :loop => "true"}
+        .sportsStep.current
+          .vidWrapper
+            %video{:src => "../videos/sports1.mp4", :loop => "true"}
           %p
             This was the first iteration. We felt like a large hero image would captivate the users' attention more. We added a couple new rich sections too: game highlights, game stats, news, and schedule. Each of these could be expanded into a larger view. 
           %p
             Overall user responses were really positive, however many users asked to see the exact play that the hero was from. In addition, they didnt really like the expanded view removing them from the main page's experience.
         .sportsStep
-          %video{:src => "../videos/sports2.mp4", :autoplay => "true", :loop => "true"}
+          .vidWrapper
+            %video{:src => "../videos/sports2.mp4", :loop => "true"}
           %p
             One of the big problems was we couldn't get photos from a game that was currently live, which meant a hero image would be outdated while the game was going on. To counteract this, we figured a team helmet might be better for a hero image so as not to confuse users with an old picture. We tried a parallax effect on it as well just to give it more depth. We also changed the expansion model to an inline expansion after feedback from the users from the previous iteration. 
           %p
             The new expandos tested really well, but users would often get lost in the expanded view. We really needed a way to navigate within the expaneded views as well. Also not a single user even noticed the parallax, which was kind of a bummer for us since a lot of us thought it was nice. I suppose it's just overused in design today, leading to user blindness. 
         .sportsStep
-          %video{:src => "../videos/sports3.mp4", :autoplay => "true", :loop => "true"}
+          .vidWrapper
+            %video{:src => "../videos/sports3.mp4", :loop => "true"}
           %p
             Since users were blind to the traditional parallax, we tried buffing it out even more by adding in device motion. This one reacted to the orientation of the phone, and would shift around as you tilted it.
           %p
             The result? All but one user completely ignored it. The one that noticed it said it made him feel sick. That's one of the joys of prototyping though - failing quickly. You catch bad ideas early for low cost. 
         .sportsStep
-          %video{:src => "../videos/sports4.mp4", :autoplay => "true", :loop => "true"}
+          .vidWrapper
+            %video{:src => "../videos/sports4.mp4", :loop => "true"}
           %p
             We added a tab model to the video. This allowed for navigation within the expansion items, and allowed users to naturally swipe between content. 
           %p
             This tested really well, and was eventually the model we handed off to devs to create. It's currently in development for production
-            
-
       
 
   .step
@@ -493,5 +547,41 @@ body_class: index
     }
   }
   */
+
+  var sportsSlider = {
+    init: function(){
+      sportsSlider.slides = document.getElementById('sportsContainer').children
+      sportsSlider.total = sportsSlider.slides.length
+    },
+    index: 1,
+    total: 0,
+    slides: null,
+    next: function(){
+      if(sportsSlider.index < sportsSlider.total - 1){
+        sportsSlider.slides[sportsSlider.index].classList.remove('current')
+        sportsSlider.slides[sportsSlider.index].classList.add('previous')
+        sportsSlider.slides[sportsSlider.index].getElementsByTagName('video')[0].pause()
+        sportsSlider.slides[sportsSlider.index + 1].classList.add('current')
+        sportsSlider.slides[sportsSlider.index + 1].getElementsByTagName('video')[0].play()
+        sportsSlider.index += 1
+      }
+      if(sportsSlider.index == 3)
+        sportsSlider.slides[sportsSlider.index].getElementsByClassName('vidWrapper')[0].classList.add('deviceMotion')
+    },
+    prev: function(){
+      if(sportsSlider.index > 0){
+        sportsSlider.slides[sportsSlider.index].classList.remove('current')
+        sportsSlider.slides[sportsSlider.index].getElementsByTagName('video')[0].pause()
+        sportsSlider.slides[sportsSlider.index - 1].classList.remove('previous')
+        sportsSlider.slides[sportsSlider.index - 1].classList.add('current')
+        sportsSlider.slides[sportsSlider.index - 1].getElementsByTagName('video')[0].play()
+        sportsSlider.index -= 1
+      }
+      if(sportsSlider.index == 3)
+        sportsSlider.slides[sportsSlider.index].getElementsByClassName('vidWrapper')[0].classList.add('deviceMotion')
+    }
+  }
+
+  sportsSlider.init()
 
 
