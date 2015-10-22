@@ -165,6 +165,41 @@ body_class: index
         %li 3D scanning/mapping software 
     %p
       It's a great role and I love the fast-paced nature of it. The ability to switch between design and code quickly is what keeps me feeling fresh and excited to work on new things. 
+  .step
+    %h3 Prototype Example: Sports Vertical for Bing
+    %p
+      This simple prototype is a great example of my day to day work. We wanted a richer experience for sports results when searching Bing.com on mobile devices. Click through each of the videos below to see the prototype each step of the way.
+      #sportsContainer
+        .sportsStep
+          %img.vid{:src => ""}
+          %p
+            This was the start. The search results are pretty plain, and really don't offer anything other than a schedule and the score for the most recent game. It didn't feel immersive, it felt like your standard search.
+        .sportsStep
+          %video{:src => "../videos/sports1.mp4", :autoplay => "true", :loop => "true"}
+          %p
+            This was the first iteration. We felt like a large hero image would captivate the users' attention more. We added a couple new rich sections too: game highlights, game stats, news, and schedule. Each of these could be expanded into a larger view. 
+          %p
+            Overall user responses were really positive, however many users asked to see the exact play that the hero was from. In addition, they didnt really like the expanded view removing them from the main page's experience.
+        .sportsStep
+          %video{:src => "../videos/sports2.mp4", :autoplay => "true", :loop => "true"}
+          %p
+            One of the big problems was we couldn't get photos from a game that was currently live, which meant a hero image would be outdated while the game was going on. To counteract this, we figured a team helmet might be better for a hero image so as not to confuse users with an old picture. We tried a parallax effect on it as well just to give it more depth. We also changed the expansion model to an inline expansion after feedback from the users from the previous iteration. 
+          %p
+            The new expandos tested really well, but users would often get lost in the expanded view. We really needed a way to navigate within the expaneded views as well. Also not a single user even noticed the parallax, which was kind of a bummer for us since a lot of us thought it was nice. I suppose it's just overused in design today, leading to user blindness. 
+        .sportsStep
+          %video{:src => "../videos/sports3.mp4", :autoplay => "true", :loop => "true"}
+          %p
+            Since users were blind to the traditional parallax, we tried buffing it out even more by adding in device motion. This one reacted to the orientation of the phone, and would shift around as you tilted it.
+          %p
+            The result? All but one user completely ignored it. The one that noticed it said it made him feel sick. That's one of the joys of prototyping though - failing quickly. You catch bad ideas early for low cost. 
+        .sportsStep
+          %video{:src => "../videos/sports4.mp4", :autoplay => "true", :loop => "true"}
+          %p
+            We added a tab model to the video. This allowed for navigation within the expansion items, and allowed users to naturally swipe between content. 
+          %p
+            This tested really well, and was eventually the model we handed off to devs to create. It's currently in development for production
+            
+
       
 
   .step
