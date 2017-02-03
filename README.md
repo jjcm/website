@@ -21,7 +21,7 @@
 2. Initialize middleman on a new or existing folder `$ middleman init path_to_project --template=middleman-hamlsasscoffee`
 
 
-For more help follow [Middleman's project template instructions](http://middlemanapp.com/getting-started/welcome/) or feel free to hit me up on [Twitter](http://twitter.com/pixelsonly).
+For more help follow [Middleman's project template instructions](https://middlemanapp.com/) or feel free to hit me up on [Twitter](http://twitter.com/pixelsonly).
 
 ---
 
